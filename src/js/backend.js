@@ -1,55 +1,65 @@
-// export class FetchService {
-  
-    //   constructor() {
-    //     this.searchQuery = '';
-    //     // this.page = 1;
-    //   }
-    
-    //     // incrementPage() {
-    //     //   this.page += 1;
-    //     // }
-    //     // resetPage() {
-    //     //   this.page = 1;
-    //     // }
-    //     // get query() {
-    //     //     return this.searchQuery;
-    //     // }
-    //     // set query(newQuery) {
-    //     //   this.searchQuery = newQuery;
-    //     // }
-        
-       
-    // }
-    
-    const { default: axios } = require("axios");
+import axios from 'axios';
 
-    console.log('hello');
-    async function onFetchPixabay() {
-        console.log('запуск');
-        // axios.defaults.baseURL = 'https://pixabay.com/api/';
-        // const BASE_URL = 'https://pixabay.com/api/';
-        // const KEY = '30339052-e4d079f5519c217cf05ffdccc';
-        // const url = `?key=${KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=40`;
-        const url = 'www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
-       
+axios.defaults.baseURL = 'https://www.thecocktaildb.com/api/';
+export default class FetchService {
+  constructor() {
+    this.searchQuery = '';
+    this.letter = '';
+    // this.page = 1;
+  }
+
+  incrementPage() {
+    this.page += 1;
+  }
+  resetPage() {
+    this.page = 1;
+  }
+  get query() {
+    return this.searchQuery;
+  }
+  set query(newQuery) {
+    this.searchQuery = newQuery;
+  }
+
+  async onFetchCoctail() {
+    
+    
+    if(this.searchQuery) {
+        console.log('по имени');
+        const url = `json/v1/1/search.php?s=${this.searchQuery}`;
         const response = await axios.get(url);
-      
-      //   if (response.data.totalHits === 0) {
-      //     Notify.failure(
-      //       'Sorry, there are no images matching your search query. Please try again.'
-      //     );
-      //     throw new Error('no images');
-      //   }
-      // if (this.page === 1) {
-      //     Notify.info(
-      //     `Hooray! We found ${response.data.totalHits} images.`
-      //   );
-      // }
-        console.log(response);
-        // this.incrementPage();
-        // return response.data.hits;
-      
-      }
-      // const nf = new FetchService;
-      
-      onFetchPixabay();
+        console.log(response.data.drinks);
+        return response.data.drinks;
+    }
+
+    if(this.letter) {
+        console.log('по букве');
+        const url = `json/v1/1/search.php?f=${this.letter}`;
+        const response = await axios.get(url);
+        console.log(response.data.drinks);
+        return response.data.drinks;
+    }
+
+    const url = 'json/v1/1/random.php';   /*Один коктейль random*/
+    const response = await axios.get(url);
+    console.log(response.data.drinks[0]);
+    return response.data.drinks;
+  }
+
+//   randomNineCoctails() {
+//     for (let index = 0; index < 9; index += 1) {
+//         this.onFetchCoctail();
+//     }
+   
+//   }
+
+  
+
+
+
+}
+
+const fetchService = new FetchService();
+fetchService.searchQuery = 'margarita';
+// fetchService.letter = 'm';
+fetchService.onFetchCoctail();
