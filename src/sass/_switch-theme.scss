@@ -7,11 +7,17 @@ body.dark-theme {
     color: $white;
 }
 
+.theme-switch {
+    display: flex;
+    align-items: center;
+}
+
 .theme-switch__text-white {
     color: $basic;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.7;
+    margin-right: 12px;
 }
 
 .theme-switch__text-black {
@@ -19,6 +25,7 @@ body.dark-theme {
     font-weight: 400;
     font-size: 14px;
     line-height: 1.7;
+    margin-left: 12px;
 }
 
 .theme-switch__control {
@@ -85,10 +92,10 @@ body.dark-theme {
 //     border: 0.604701px solid $white;
 // }
 
-.theme-switch__toggle:checked.theme-switch__text-black {
+.theme-switch__toggle:checked + .theme-switch__text-black {
     color: $basic;
 }
 
-.theme-switch__toggle:checked.theme-switch__text-white {
+.theme-switch__toggle:checked + .theme-switch__text-white {
     color: $grey;
 }
