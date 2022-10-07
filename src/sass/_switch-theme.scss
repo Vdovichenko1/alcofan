@@ -1,10 +1,10 @@
 body.light-theme {
-    background-color: $white;
-    color: $black;
+    background-color: #FFFFFF;
+    color: #000000;
 }
 body.dark-theme {
-    background-color: $black;
-    color: $white;
+    background-color: #000000;
+    color: #FFFFFF;
 }
 
 .theme-switch {
@@ -13,7 +13,7 @@ body.dark-theme {
 }
 
 .theme-switch__text-white {
-    color: $basic;
+    color: #FD5103;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.7;
@@ -21,7 +21,7 @@ body.dark-theme {
 }
 
 .theme-switch__text-black {
-    color: $grey;
+    color: #5F6775;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.7;
@@ -37,7 +37,7 @@ body.dark-theme {
     height: 20px;
     border-radius: 50em;
     padding: 3px 0;
-    border: 0.604701px solid $basic;
+    border: 0.604701px solid #FD5103;
 }
 
 .theme-switch__toggle {
@@ -59,7 +59,7 @@ body.dark-theme {
     height: 100%;
     color: transparent;
     user-select: none;
-    background-color: $white;
+    background-color: #FFFFFF;
     border-radius: inherit;
     z-index: 1;
     cursor: pointer;
@@ -67,7 +67,7 @@ body.dark-theme {
 
 .theme-switch__marker {
     position: relative;
-    background-color: $basic;
+    background-color: #FD5103;
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -78,24 +78,20 @@ body.dark-theme {
 }
 
 .theme-switch__toggle:checked+.theme-switch__track {
-    background-color: $basic;
-    border: 0.604701px solid $white;
+    background-color: #FD5103;
+    border: 0.604701px solid #FFFFFF;
 }
 
 .theme-switch__toggle:checked~.theme-switch__marker {
     transform: translateX(20px);
-    background-color: $white;
+    background-color: #FFFFFF;
 }
 
-// .theme-switch__toggle:focus+.theme-switch__track,
-// .theme-switch__toggle:active+.theme-switch__track {
-//     border: 0.604701px solid $white;
-// }
 
 .theme-switch__toggle:checked + .theme-switch__text-black {
-    color: $basic;
+    color: #FD5103;
 }
 
 .theme-switch__toggle:checked + .theme-switch__text-white {
-    color: $grey;
+    color: #5F6775;
 }
