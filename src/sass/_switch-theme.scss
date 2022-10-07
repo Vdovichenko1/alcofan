@@ -6,6 +6,21 @@ body.dark-theme {
     background-color: $black;
     color: $white;
 }
+
+.theme-switch__text-white {
+    color: $basic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.theme-switch__text-black {
+    color: $grey;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
 .theme-switch__control {
     display: flex;
     align-items: center;
@@ -57,6 +72,7 @@ body.dark-theme {
 
 .theme-switch__toggle:checked+.theme-switch__track {
     background-color: $basic;
+    border: 0.604701px solid $white;
 }
 
 .theme-switch__toggle:checked~.theme-switch__marker {
@@ -64,7 +80,15 @@ body.dark-theme {
     background-color: $white;
 }
 
-.theme-switch__toggle:focus+.theme-switch__track,
-.theme-switch__toggle:active+.theme-switch__track {
-    border: 0.604701px solid $white;
+// .theme-switch__toggle:focus+.theme-switch__track,
+// .theme-switch__toggle:active+.theme-switch__track {
+//     border: 0.604701px solid $white;
+// }
+
+.theme-switch__toggle:checked.theme-switch__text-black {
+    color: $basic;
+}
+
+.theme-switch__toggle:checked.theme-switch__text-white {
+    color: $grey;
 }
