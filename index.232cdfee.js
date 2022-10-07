@@ -1,0 +1,2 @@
+!function(){var e,t="light-theme",r="dark-theme",c="theme",o=document.querySelector(".theme-switch__toggle");e=function(e){try{var t=localStorage.getItem(e);return null===t?void 0:JSON.parse(t)}catch(e){console.error("Get state error: ",e.message)}}(c),o.checked=e,document.body.className=e?r:t;o.addEventListener("change",(function(e){var o=e.target.checked;document.body.className=o?r:t,function(e,t){try{var r=JSON.stringify(t);localStorage.setItem(e,r)}catch(e){console.error("Set state error: ",e.message)}}(c,o)}))}();
+//# sourceMappingURL=index.232cdfee.js.map

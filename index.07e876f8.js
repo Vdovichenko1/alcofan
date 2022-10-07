@@ -1,0 +1,2 @@
+const e="light-theme",t="dark-theme",c=document.querySelector(".theme-switch__toggle");(()=>{const o=(e=>{try{const t=localStorage.getItem(e);return null===t?void 0:JSON.parse(t)}catch(e){console.error("Get state error: ",e.message)}})("theme");c.checked=o,document.body.className=o?t:e})();c.addEventListener("change",(c=>{const{checked:o}=c.target;document.body.className=o?t:e,((e,t)=>{try{const c=JSON.stringify(t);localStorage.setItem(e,c)}catch(e){console.error("Set state error: ",e.message)}})("theme",o)}));
+//# sourceMappingURL=index.07e876f8.js.map
