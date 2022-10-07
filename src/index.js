@@ -1,0 +1,1 @@
+import FetchService from './js/backend';
