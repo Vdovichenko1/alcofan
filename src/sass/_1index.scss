@@ -1,21 +1,31 @@
 .header {
   background-color: #ffffff;
+  height: 70px;
 }
 
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .logo {
-  margin-right: 30px;
+  margin-right: 43px;
+  &__icon {
+    color: black;
+  }
 }
 
 .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  &__link {
+    margin-right: 60px;
+  }
 }
 
 .search-form {
@@ -24,18 +34,25 @@
   margin-left: auto;
 
   &__input {
+    display: flex;
     border-radius: 5px;
-    height: 30px;
+    width: 288px;
+    height: 40px;
+    overflow: hidden;
+    &::placeholder {
+      text-align: center;
+    }
   }
 
   &__btn {
-    border-radius: 5px;
+    height: 36px;
     border-color: transparent;
     background-color: rgb(226, 225, 225);
     position: absolute;
-    top: 3;
+    top: 2;
+    left: 40;
     transform: translateX(-106%);
-    color: black;
+    color: $font-secondary-color;
 
     &:hover {
       background-color: rgb(188, 192, 192);
@@ -113,4 +130,43 @@
       background-color: rgba(0, 0, 0, 0.2);
     }
   }
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    gap: 32px;
+  }
+}
+
+.card {
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 32px) / 2);
+  }
+  @media screen and (min-width: 1280px) {
+    width: calc((100% - 64px) / 3);
+  }
+}
+
+.card__title {
+  text-align: center;
+  margin: 0 0 25px 0;
+}
+
+.card__meta {
+  padding: 20px;
+}
+
+.card__buttons {
+  display: flex;
+  justify-content: space-around;
 }

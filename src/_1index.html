@@ -1,11 +1,13 @@
 <header class="header">
   <div class="container header__container">
+    <a class="logo" href="#">
+      <svg class="logo__icon" width="38" height="38">
+        <use href="./img/icons.svg#cocktail-svgrepo-com"></use>
+      </svg>
+    </a>
     <nav class="navigation">
-      <a class="logo" href="#">
-        <img src="./img/cocktail-svgrepo-com.svg" alt="logo" />
-      </a>
-      <a class="navigation_link" href="#">Home</a>
-      <a class="navigation__link" href="#">Favorite</a>
+      <a class="navigation__link link" href="#">Home</a>
+      <a class="navigation__link link" href="#">Favorite</a>
     </nav>
 
     <form class="search-form" id="search-form">
@@ -32,7 +34,8 @@
 </header>
 
 <main>
-  <section class="hero">
+  <!-- hero -->
+  <section class="section">
     <div class="container">
       <h2 class="section__title visually-hidden">Hero section</h2>
       <p class="">A party without cocktails is not like a party</p>
@@ -41,33 +44,57 @@
       <img src="#" alt="cocktail photo" />
     </div>
   </section>
-  <section class="gallery">
+  <!-- gallery  -->
+  <section class="section">
     <div class="container">
       <h1 class="section__title">Cocktails</h1>
-      <div class="card">
-        <img class="card__img" src="#" alt="random cocktail photo" />
-        <div class="card__meta">
-          <h3 class="card__title"></h3>
-          <button class="lm-btn" type="button"></button>
-          <button class="add-to-favirite-btn" type="button"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card__img" src="#" alt="random cocktail photo" />
-        <div class="card__meta">
-          <h3 class="card__title"></h3>
-          <button class="lm-btn" type="button"></button>
-          <button class="add-to-favirite-btn" type="button"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card__img" src="#" alt="random cocktail photo" />
-        <div class="card__meta">
-          <h3 class="card__title"></h3>
-          <button class="lm-btn" type="button"></button>
-          <button class="add-to-favirite-btn" type="button"></button>
-        </div>
-      </div>
+      <ul class="gallery list">
+        <li class="card">
+          <img class="card__img" src="#" alt="random cocktail photo" />
+          <div class="card__meta">
+            <h3 class="card__title">Negroni</h3>
+            <div class="card__buttons">
+              <button class="btn btn--lm" type="button">Learn more</button>
+              <button class="btn-add" type="button">
+                Add to
+                <svg class="button__icon" width="20" height="20">
+                  <use href="#"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="#" alt="random cocktail photo" />
+          <div class="card__meta">
+            <h3 class="card__title">Negroni</h3>
+            <div class="card__buttons">
+              <button class="btn btn--lm" type="button">Learn more</button>
+              <button class="btn-add" type="button">
+                Add to
+                <svg class="button__icon" width="20" height="20">
+                  <use href="#"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="#" alt="random cocktail photo" />
+          <div class="card__meta">
+            <h3 class="card__title">Negroni</h3>
+            <div class="card__buttons">
+              <button class="btn btn--lm" type="button">Learn more</button>
+              <button class="btn-add" type="button">
+                Add to
+                <svg class="button__icon" width="20" height="20">
+                  <use href="#"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 </main>

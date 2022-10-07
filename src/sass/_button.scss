@@ -1,0 +1,92 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  min-width: 182px;
+  min-height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $btn-primary;
+
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: center;
+  cursor: pointer;
+
+  border-radius: 4px;
+  border: 2px solid transparent;
+
+  transition: 250ms linear;
+
+  &:hover {
+    background-color: $btn-focus;
+    border: 2px solid $btn-focus;
+  }
+
+  &:active {
+    background-color: $btn-active;
+    border: 2px solid $btn-active;
+  }
+
+  &--remove {
+    min-width: 248px;
+  }
+}
+
+.btn-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 141px;
+  min-height: 48px;
+  padding: 5px 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: transparent;
+  color: $font-secondary-color;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: center;
+  cursor: pointer;
+
+  border-radius: 5px;
+  border: 2px solid $btn-primary;
+
+  transition: 250ms linear;
+
+  &:hover {
+    background-color: $btn-focus;
+  }
+
+  //   &:active {
+  //     border: 2px solid $btn-active;
+  //   }
+
+  &--tab {
+    min-width: 123px;
+  }
+
+  &--mob {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71;
+    min-width: 110px;
+    min-height: 39px;
+  }
+}
+
+.button__icon {
+  margin-left: 10px;
+  fill: currentColor;
+  @media screen and (max-width: 767px) {
+    margin-left: 2px;
+  }
+}
