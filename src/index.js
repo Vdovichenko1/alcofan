@@ -1,1 +1,2 @@
-import FetchService from './js/backend';
+import FetchService from '../src/js/backend.js';
+
