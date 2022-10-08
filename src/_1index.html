@@ -1,9 +1,10 @@
 <header class="header">
   <div class="container header__container">
     <a class="logo" href="#">
-      <svg class="logo__icon" width="38" height="38">
-        <use href="./img/icons.svg#cocktail-svgrepo-com"></use>
-      </svg>
+      <img src="./img/logo.png" alt="Logo" />
+      <!-- <svg class="logo__icon" width="38" height="38">
+        <use href=""></use>
+      </svg> -->
     </a>
     <nav class="navigation">
       <a class="navigation__link link" href="#">Home</a>
@@ -21,14 +22,25 @@
       <button class="search-form__btn" type="submit">&#128269;</button>
     </form>
 
-    <div class="switcher">
-      <input type="checkbox" id="switcher-control" class="switcher-control" />
-      <label
-        for="switcher-control"
-        class="switcher-checkbox"
-        data-checkbox-false="L"
-        data-checkbox-true="D"
-      ></label>
+    <div class="theme-switch">
+      <p class="theme-switch__text-white">Light</p>
+      <div class="theme-switch__control">
+        <input
+          class="theme-switch__toggle"
+          type="checkbox"
+          name="theme"
+          id="theme-switch-toggle"
+          aria-label="Переключить между тёмной и светлой темой"
+        />
+        <label
+          aria-hidden="true"
+          class="theme-switch__track"
+          for="theme-switch-toggle"
+        >
+        </label>
+        <div aria-hidden="true" class="theme-switch__marker"></div>
+      </div>
+      <p class="theme-switch__text-black">Dark</p>
     </div>
   </div>
 </header>
@@ -36,12 +48,89 @@
 <main>
   <!-- hero -->
   <section class="section">
-    <div class="container">
-      <h2 class="section__title visually-hidden">Hero section</h2>
-      <p class="">A party without cocktails is not like a party</p>
-      <p>Search your favorite cocktail by ABC</p>
-      <div class="ABC-picker"></div>
-      <img src="#" alt="cocktail photo" />
+    <div class="container hero">
+      <div class="hero__info">
+        <h2 class="section__title visually-hidden">Hero section</h2>
+        <p class="hero__lable">A party without cocktails is not like a party</p>
+        <p class="hero__text">Search your favorite cocktail by ABC</p>
+        <div class="ABC-picker">
+          <span class="hero__letter active">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+          <span class="hero__letter">A</span>
+        </div>
+      </div>
+      <picture>
+        <!-- <source
+            srcset="
+              ./images/header/logo/mobile/logo-mobile.png    20w,
+              ./images/header/logo/mobile/logo-mobile@2x.png 39w,
+              ./images/header/logo/mobile/logo-mobile@3x.png 57w
+            "
+            media="(max-width:767px)"
+            type="image/png"
+            sizes="(max-width: 767px) 19px, 100vw"
+          />
+          <source
+            srcset="
+              ./images/header/logo/tablet/logo-tablet.png    24w,
+              ./images/header/logo/tablet/logo-tablet@2x.png 46w,
+              ./images/header/logo/tablet/logo-tablet@3x.png 68w
+            "
+            media="(min-width:768px) and (max-width:1199px)"
+            type="image/png"
+            sizes="(min-width:768px) and (max-width:1199px) 24px, 100vw"
+          /> -->
+        <source
+          srcset="
+            ./img/delicious@1x.png 29w,
+            ./img/delicious@2x.png 57w,
+            ./img/delicious@3x.png 85w
+          "
+          media="(min-width:1200px)"
+          type="image/png"
+          sizes="(min-width:1200px) 28px, 100vw"
+        />
+        <img
+          class="hero__img"
+          src="./img/delicious@1x.png"
+          alt="cocktail"
+          width="580"
+        />
+      </picture>
     </div>
   </section>
   <!-- gallery  -->
@@ -50,14 +139,19 @@
       <h1 class="section__title">Cocktails</h1>
       <ul class="gallery list">
         <li class="card">
-          <img class="card__img" src="#" alt="random cocktail photo" />
+          <img
+            class="card__img"
+            src="#"
+            alt="random cocktail photo"
+            loading="lazy"
+          />
           <div class="card__meta">
             <h3 class="card__title">Negroni</h3>
             <div class="card__buttons">
               <button class="btn btn--lm" type="button">Learn more</button>
               <button class="btn-add" type="button">
                 Add to
-                <svg class="button__icon" width="20" height="20">
+                <svg class="btn__icon" width="20" height="20">
                   <use href="#"></use>
                 </svg>
               </button>
@@ -65,7 +159,12 @@
           </div>
         </li>
         <li class="card">
-          <img class="card__img" src="#" alt="random cocktail photo" />
+          <img
+            class="card__img"
+            src="#"
+            alt="random cocktail photo"
+            loading="lazy"
+          />
           <div class="card__meta">
             <h3 class="card__title">Negroni</h3>
             <div class="card__buttons">
