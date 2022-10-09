@@ -281,7 +281,13 @@
   justify-content: space-around;
 }
 
-.footer {
+footer {
+  height: 100px;
+  width: 100%;
   background-color: $font-secondary-color;
-  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: $background-light;
 }
