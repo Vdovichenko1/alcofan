@@ -5,9 +5,9 @@ import { getData } from './fetch';
 export let favoritDrinks = {};
 export let favoriteIngredients = {};
 
- const KEY_LOCAL_STORAGE_THEME = 'theme';
- const KEY_LOCAL_STORAGE_FAVORITE_DRINKS = 'favorit_drinks';
- const KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS = 'favorite_ingredients';
+export const KEY_LOCAL_STORAGE_THEME = 'theme';
+export const KEY_LOCAL_STORAGE_FAVORITE_DRINKS = 'favorit_drinks';
+export const KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS = 'favorite_ingredients';
 
 const arrayLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const arrayNumeral = '1234567890'.split('');
