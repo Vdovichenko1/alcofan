@@ -13,6 +13,24 @@
     />
     <script type="module" src="./index.js"></script>
   </head>
+  <style>
+    .light {
+      background-color: #ddd;
+    }
+    .dark {
+      background-color: #444;
+    }
+
+    .card {
+      transform: translateX(150px);
+      opacity: 0.1;
+      transition: 300ms;
+    }
+    .show {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  </style>
   <body>
     <include src="./_1index.html"></include>
     <include src="./favorite.html"></include>
