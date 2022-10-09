@@ -18,7 +18,7 @@
         type="text"
         name="searchQuery"
         autocomplete="off"
-        placeholder="Search images..."
+        placeholder="Search |"
       />
       <button class="search-form__btn" type="submit">
         <svg class="search__icon" width="20" height="20">
@@ -46,6 +46,35 @@
         <div aria-hidden="true" class="theme-switch__marker"></div>
       </div>
       <p class="theme-switch__text-black">Dark</p>
+    </div>
+    <button type="button" class="nav__menu is-open" data-menu-button aria-expanded="false">
+      <svg width="30" height="16" aria-label="Переключать меню">
+        <use class="nav__menu--close" href="./img/symbol-defs.svg#icon-close"></use>
+        <use class="nav__menu--open" href="./img/symbol-defs.svg#icon-open"></use>
+      </svg>
+    </button>
+    <div class="nav__modal is-open" data-menu>
+      <div class="nav__modal-mob">
+        <a class="logo link" href="./index.html">
+          <span class="logo__text">Coctails</span>
+          <img class="logo__icon" src="./img/logo.png" alt="Logo" />
+        </a>
+        <div class="theme-switch__tab-mob">
+          <p class="theme-switch__text-white">Light</p>
+          <div class="theme-switch__control">
+            <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
+              aria-label="Переключить между тёмной и светлой темой" />
+            <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
+            </label>
+            <div aria-hidden="true" class="theme-switch__marker"></div>
+          </div>
+          <p class="theme-switch__text-black">Dark</p>
+        </div>
+      </div>
+      <nav class="navigation__tab-mob">
+        <a class="navigation__link link" href="./index.html">Home</a>
+        <a class="navigation__link link" href="./favorite.html">Favorite</a>
+      </nav>
     </div>
   </div>
 </header>
