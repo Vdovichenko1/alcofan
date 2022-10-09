@@ -125,8 +125,8 @@ export default class FetchService {
   }
 }
 
-const fetchService = new FetchService();
-document.body.innerHTML = '';
+// const fetchService = new FetchService();
+// document.body.innerHTML = '';
 
 // fetchService.randomCoctailsOnStart(); // Ожидает число, возврашает  массив объектов (по дефолту вернет 9 рандомных коктейлей)
 
