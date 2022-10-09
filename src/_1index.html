@@ -1,0 +1,284 @@
+<header class="header">
+  <div class="container header__container">
+    <a class="logo link" href="#">
+      <span class="logo__text">Coctails</span>
+      <img class="logo__icon" src="./img/logo.png" alt="Logo" />
+      <!-- <svg class="logo__icon" width="38" height="38">
+        <use href=""></use>
+      </svg> -->
+    </a>
+    <nav class="navigation">
+      <a class="navigation__link link" href="#">Home</a>
+      <a class="navigation__link link" href="#">Favorite</a>
+    </nav>
+
+    <form class="search-form" id="search-form">
+      <input
+        class="search-form__input"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button class="search-form__btn" type="submit">&#128269;</button>
+    </form>
+
+    <div class="theme-switch">
+      <p class="theme-switch__text-white">Light</p>
+      <div class="theme-switch__control">
+        <input
+          class="theme-switch__toggle"
+          type="checkbox"
+          name="theme"
+          id="theme-switch-toggle"
+          aria-label="Переключить между тёмной и светлой темой"
+        />
+        <label
+          aria-hidden="true"
+          class="theme-switch__track"
+          for="theme-switch-toggle"
+        >
+        </label>
+        <div aria-hidden="true" class="theme-switch__marker"></div>
+      </div>
+      <p class="theme-switch__text-black">Dark</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- hero -->
+  <section class="section">
+    <div class="container hero">
+      <div class="hero__info">
+        <h2 class="section__title visually-hidden">Hero section</h2>
+        <p class="hero__lable">A party without cocktails is not like a party</p>
+        <p class="hero__text">Search your favorite cocktail by ABC</p>
+        <div class="ABC-picker">
+          <span class="hero__letter active">A</span>
+          <span class="hero__letter">B</span>
+          <span class="hero__letter">C</span>
+          <span class="hero__letter">D</span>
+          <span class="hero__letter">E</span>
+          <span class="hero__letter">F</span>
+          <span class="hero__letter">G</span>
+          <span class="hero__letter">H</span>
+          <span class="hero__letter">I</span>
+          <span class="hero__letter">J</span>
+          <span class="hero__letter">K</span>
+          <span class="hero__letter">L</span>
+          <span class="hero__letter">M</span>
+          <span class="hero__letter">N</span>
+          <span class="hero__letter">O</span>
+          <span class="hero__letter">P</span>
+          <span class="hero__letter">Q</span>
+          <span class="hero__letter">R</span>
+          <span class="hero__letter">S</span>
+          <span class="hero__letter">T</span>
+          <span class="hero__letter">U</span>
+          <span class="hero__letter">V</span>
+          <span class="hero__letter">W</span>
+          <span class="hero__letter">X</span>
+          <span class="hero__letter">Y</span>
+          <span class="hero__letter">Z</span>
+          <span class="hero__letter">1</span>
+          <span class="hero__letter">2</span>
+          <span class="hero__letter">3</span>
+          <span class="hero__letter">4</span>
+          <span class="hero__letter">5</span>
+          <span class="hero__letter">6</span>
+          <span class="hero__letter">7</span>
+          <span class="hero__letter">8</span>
+          <span class="hero__letter">9</span>
+          <span class="hero__letter">0</span>
+        </div>
+        <div class="datalist">
+          <input
+            class="datalist__input"
+            autocomplete="off"
+            role="combobox"
+            list=""
+            id="input"
+            name="letters"
+            value="A"
+          />
+          <datalist class="datalist__list" id="letters" role="listbox">
+            <option class="datalist__option" value="A">A</option>
+            <option class="datalist__option" value="B">B</option>
+            <option class="datalist__option" value="C">C</option>
+            <option class="datalist__option" value="D">D</option>
+            <option class="datalist__option" value="E">E</option>
+            <option class="datalist__option" value="F">F</option>
+            <option class="datalist__option" value="G">G</option>
+            <option class="datalist__option" value="H">H</option>
+            <option class="datalist__option" value="I">I</option>
+            <option class="datalist__option" value="J">J</option>
+            <option class="datalist__option" value="K">K</option>
+            <option class="datalist__option" value="L">L</option>
+            <option class="datalist__option" value="M">M</option>
+            <option class="datalist__option" value="N">N</option>
+            <option class="datalist__option" value="O">O</option>
+            <option class="datalist__option" value="P">P</option>
+            <option class="datalist__option" value="Q">Q</option>
+            <option class="datalist__option" value="R">R</option>
+            <option class="datalist__option" value="S">S</option>
+            <option class="datalist__option" value="T">T</option>
+            <option class="datalist__option" value="U">U</option>
+            <option class="datalist__option" value="V">V</option>
+            <option class="datalist__option" value="W">W</option>
+            <option class="datalist__option" value="X">X</option>
+            <option class="datalist__option" value="Y">Y</option>
+            <option class="datalist__option" value="Z">Z</option>
+            <option class="datalist__option" value="1">1</option>
+            <option class="datalist__option" value="2">2</option>
+            <option class="datalist__option" value="3">3</option>
+            <option class="datalist__option" value="4">4</option>
+            <option class="datalist__option" value="5">5</option>
+            <option class="datalist__option" value="6">6</option>
+            <option class="datalist__option" value="7">7</option>
+            <option class="datalist__option" value="8">8</option>
+            <option class="datalist__option" value="9">9</option>
+            <option class="datalist__option" value="0">0</option>
+          </datalist>
+          <!-- <svg class="datalist__icon" width="24" height="24">
+            <use href="./img/chevron-down.svg"></use>
+          </svg> -->
+        </div>
+      </div>
+      <picture>
+        <!-- <source
+            srcset="
+              ./images/header/logo/mobile/logo-mobile.png    20w,
+              ./images/header/logo/mobile/logo-mobile@2x.png 39w,
+              ./images/header/logo/mobile/logo-mobile@3x.png 57w
+            "
+            media="(max-width:767px)"
+            type="image/png"
+            sizes="(max-width: 767px) 19px, 100vw"
+          />
+          <source
+            srcset="
+              ./images/header/logo/tablet/logo-tablet.png    24w,
+              ./images/header/logo/tablet/logo-tablet@2x.png 46w,
+              ./images/header/logo/tablet/logo-tablet@3x.png 68w
+            "
+            media="(min-width:768px) and (max-width:1199px)"
+            type="image/png"
+            sizes="(min-width:768px) and (max-width:1199px) 24px, 100vw"
+          /> -->
+        <source
+          srcset="
+            ./img/delicious@1x.png 29w,
+            ./img/delicious@2x.png 57w,
+            ./img/delicious@3x.png 85w
+          "
+          media="(min-width:1200px)"
+          type="image/png"
+          sizes="(min-width:1200px) 28px, 100vw"
+        />
+        <img
+          class="hero__img"
+          src="./img/delicious@1x.png"
+          alt="cocktail"
+          width="580"
+        />
+      </picture>
+    </div>
+  </section>
+  <!-- gallery  -->
+  <section class="section">
+    <div class="container">
+      <h1 class="section__title">Cocktails</h1>
+      <ul class="gallery list">
+        <li class="card">
+          <img
+            class="card__img"
+            src="#"
+            alt="random cocktail photo"
+            loading="lazy"
+          />
+          <div class="card__meta">
+            <h3 class="card__title">Negroni</h3>
+            <ul class="card__ingridients visually-hidden">
+              <li>1 oz Campari</li>
+              <li>1 oz Sweet Vermouth</li>
+              <li>1 1/4 oz Rye whiskey</li>
+              <li>1 Orange Peel</li>
+            </ul>
+            <p class="card__Instruction visually-hidden">
+              Stir with ice, strain, garnish and serve.
+            </p>
+            <div class="card__buttons">
+              <button class="btn btn--lm" type="button">Learn more</button>
+              <button class="btn-add" type="button">
+                Add to
+                <svg class="btn__icon" width="20" height="20">
+                  <use href="#"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="card">
+          <img
+            class="card__img"
+            src="#"
+            alt="random cocktail photo"
+            loading="lazy"
+          />
+          <div class="card__meta">
+            <h3 class="card__title">Negroni</h3>
+            <ul class="card__ingridients visually-hidden">
+              <li>1 oz Campari</li>
+              <li>1 oz Sweet Vermouth</li>
+              <li>1 1/4 oz Rye whiskey</li>
+              <li>1 Orange Peel</li>
+            </ul>
+            <p class="card__Instruction visually-hidden">
+              Stir with ice, strain, garnish and serve.
+            </p>
+            <div class="card__buttons">
+              <button class="btn btn--lm" type="button">Learn more</button>
+              <button class="btn-add" type="button">
+                Add to
+                <svg class="btn__icon" width="20" height="20">
+                  <use href="#"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="card">
+          <img
+            class="card__img"
+            src="#"
+            alt="random cocktail photo"
+            loading="lazy"
+          />
+          <div class="card__meta">
+            <h3 class="card__title">Negroni</h3>
+            <ul class="card__ingridients visually-hidden">
+              <li>1 oz Campari</li>
+              <li>1 oz Sweet Vermouth</li>
+              <li>1 1/4 oz Rye whiskey</li>
+              <li>1 Orange Peel</li>
+            </ul>
+            <p class="card__Instruction visually-hidden">
+              Stir with ice, strain, garnish and serve.
+            </p>
+            <div class="card__buttons">
+              <button class="btn btn--lm" type="button">Learn more</button>
+              <button class="btn-add" type="button">
+                Add to
+                <svg class="btn__icon" width="20" height="20">
+                  <use href="#"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+<footer class="footer"></footer>
