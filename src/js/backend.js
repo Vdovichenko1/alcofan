@@ -25,22 +25,69 @@ export default class FetchService {
     return response;
   }
 
-  async byNameCoctail() {
+  async byNameCoctail(number, query = this.searchQuery) {
         console.log('по имени');
-        const url = `json/v1/1/search.php?s=${this.searchQuery}`;
+        if(!query) {
+          console.log('Enter searchQuery');
+          return;
+        }
+        const url = `json/v1/1/search.php?s=${query.trim()}`;
         const response = await axios.get(url);
-        this.ifNoCoctails(response.data.drinks);
-        console.log(response.data.drinks);
-        return response.data.drinks;
+        console.log(response);
+        const drinks = response.data.drinks;
+        if (!drinks) {
+          console.log("Sorry we didn't find any coctails");
+          return;
+        }
+        if(number === 3 && drinks.length > 3) {
+          console.log(drinks.slice(0,3));
+          console.log('3 dinks');
+          return drinks.slice(0,3);
+        }
+        if(number === 6 && drinks.length > 6) {
+          console.log(drinks.slice(0,6));
+          console.log('6 dinks');
+          return drinks.slice(0,6);
+        }
+        if(number === 9 && drinks.length > 9) {
+          console.log(drinks.slice(0,9));
+          console.log('9 dinks');
+          return drinks.slice(0,9);
+        }
+        console.log(drinks);
+        return drinks;
   }
 
-  async byLetterCoctail() {
+  async byLetterCoctail(number, query = this.letter) {
     console.log('по букве');
-    const url = `json/v1/1/search.php?f=${this.letter}`;
+    if(!query) {
+      console.log('Enter searchQuery');
+      return;
+    }
+    const url = `json/v1/1/search.php?f=${query}`;
     const response = await axios.get(url);
-    this.ifNoCoctails(response.data.drinks);
-    console.log(response.data.drinks);
-    return response.data.drinks;
+    const drinks = response.data.drinks;
+        if (!drinks) {
+        console.log("Sorry we didn't find any coctails");
+        return;
+        }
+        if(number === 3 && drinks.length > 3) {
+          console.log(drinks.slice(0,3));
+          console.log('3 dinks');
+          return drinks.slice(0,3);
+        }
+        if(number === 6 && drinks.length > 6) {
+          console.log(drinks.slice(0,6));
+          console.log('6 dinks');
+          return drinks.slice(0,6);
+        }
+        if(number === 9 && drinks.length > 9) {
+          console.log(drinks.slice(0,9));
+          console.log('9 dinks');
+          return drinks.slice(0,9);
+        }
+        console.log(drinks);
+        return drinks;
   }
 
   async byIdCoctail(id = this.idCoctail) {
@@ -67,14 +114,10 @@ export default class FetchService {
     console.log(response.data.ingredients[0]);
     return response.data.ingredients[0];
   }
-  ifNoCoctails(check) {
-    if(!check) {
-      console.log("Sorry we didn't find any coctails");
-    }
-  }
+  
 
   //Ingredients
-  fetchIngredients(obj = this.ings) {  //получает объект {}
+  fetchIngredients(obj = this.ings) {  //получает объект drink {}
     const ingAr = [];
   for (let index = 1; index < 16; index+=1) {
     const el = obj[`strIngredient${index}`];
@@ -83,12 +126,15 @@ export default class FetchService {
     }
     ingAr.push(el);
   }
-  return ingAr;
+  return ingAr; //массив ингридиентов
   }
 
 }
 
 // const fetchService = new FetchService();
+
+// fetchService.byNameCoctail(9,'margarita');
+// fetchService.byLetterCoctail(6,'m');
 
 // document.body.insertAdjacentHTML('beforeend', '<button class="test-button">Test button</button>');
 // document.body.insertAdjacentHTML('beforeend', '<div class="js-box"></div>');
@@ -114,7 +160,7 @@ export default class FetchService {
 //   testDiv.addEventListener('click', onLearnMore)
 // }
 
-//Render markup 9 coctails
+// // Render markup 9 coctails
 
 // function renderCoctailsAll(prm) {
 //   const markup = prm
@@ -131,7 +177,7 @@ export default class FetchService {
 //     testDiv.innerHTML = markup;
 // }
 
-//Render markup 1 coctail
+// // Render markup 1 coctail
 
 // function renderCoctail(prm) {
 //   fetchService.ings = prm;
@@ -170,11 +216,3 @@ export default class FetchService {
 // console.log('favorite',load);
 // }
 // loadMessage();
-
-
-
-
-
-
-  
-  
