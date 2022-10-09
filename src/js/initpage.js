@@ -1,9 +1,11 @@
 import { loadLocalStorage } from './localStorage';
 import { htmlElements } from './start';
 import { getData } from './fetch';
+import FetchService from './backend';
 
 export let favoritDrinks = {};
 export let favoriteIngredients = {};
+export const fetchService = new FetchService();
 
 export const KEY_LOCAL_STORAGE_THEME = 'theme';
 export const KEY_LOCAL_STORAGE_FAVORITE_DRINKS = 'favorit_drinks';
@@ -15,39 +17,45 @@ const arrayNumeral = '1234567890'.split('');
 const ref = {
   alphabet: document.querySelector('.ABC-picker'),
   numbers: document.querySelector('.numbers-picker'),
-  select: document.querySelector('.select-picker'),
+  select: document.querySelector('.datalist'),
 };
 export function initPage() {
-
-  ref.alphabet.innerHTML = arrayLetters
-    .map(item => `<li>${item}</li>`)
+  ref.alphabet.innerHTML = [...arrayLetters, ...arrayNumeral]
+    .map(
+      item => `<li class="hero__letter">${item}</li>
+    `
+    )
     .join('');
-  ref.numbers.innerHTML = arrayNumeral.map(item => `<li>${item}</li>`).join('');
+
   ref.select.innerHTML =
     `<select class="select">` +
     [...arrayLetters, ...arrayNumeral]
-      .map(item => `<option value="${item}">${item}<option>`)
+      .map(
+        item => `<option class="datalist__option" value="${item}">${item}</option>
+      `
+      )
       .join('') +
     `</select>`;
 
-  // темная и светлая тема
-  // const theme = loadLocalStorage(KEY_LOCAL_STORAGE_THEME);
-  // htmlElements.inputDarkAndLightTheem.checked = theme;
-  // document.body.className = theme ? 'light' : 'dark';
-  // любиміе напитки из хранилища
   if (loadLocalStorage(KEY_LOCAL_STORAGE_FAVORITE_DRINKS)) {
     favoritDrinks = loadLocalStorage(KEY_LOCAL_STORAGE_FAVORITE_DRINKS);
   }
   console.log('опросил локалсторедж = favoritDrinks', favoritDrinks);
   // любиміе ингридиенты из хранилища
   if (loadLocalStorage(KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS)) {
-    favoriteIngredients = loadLocalStorage(KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS);
+    favoriteIngredients = loadLocalStorage(
+      KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS
+    );
   }
-  console.log('опросил локалсторедж favoriteIngredients = ', favoriteIngredients);
-
+  console.log(
+    'опросил локалсторедж favoriteIngredients = ',
+    favoriteIngredients
+  );
+  console.log("запросил данные = ", fetchService.randomCoctailsOnStart(2));
+  console.log(favoriteIngredients, favoritDrinks, getNumberElement());
   console.log(getNumberElement());
-  getData(getNumberElement());
 
+  getData(getNumberElement());
 }
 export function getNumberElement() {
   const windowWidth = window.innerWidth;
@@ -76,8 +84,7 @@ export const observerForAmination = new IntersectionObserver(
 
 export const observerForLoad = new IntersectionObserver(entries => {
   if (!entries[0].isIntersecting) return;
-  console.log("нужні новіе карточки", entries.length)
+  console.log('нужні новіе карточки', entries.length);
   getData(entries.length);
   observerForLoad.unobserve(entries[0].target);
- 
 });

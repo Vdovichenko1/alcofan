@@ -6,6 +6,7 @@ import { KEY_LOCAL_STORAGE_FAVORITE_DRINKS } from './initpage';
 import { KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS } from './initpage';
 
 export function createMarkUpCards(arrOfDrinks) {
+  
   const htmlStrings = arrOfDrinks.map(el => {
     let myClass = '';
     let myTextContent = '';
@@ -54,55 +55,12 @@ function newChooseDrink(e) {
   if (id in favoritDrinks) {
     delete favoritDrinks[id];
     element.textContent = 'Add to';
-    element.className = 'drink__choice';
+    element.className = 'btn-add';
   } else {
     favoritDrinks[id] = true;
     element.textContent = 'Remove';
-    element.className = 'drink__choice  done';
+    element.className = 'btn-add  done';
   }
   saveLocalStorage(KEY_LOCAL_STORAGE_FAVORITE_DRINKS, favoritDrinks);
   console.log('favoritDrinks', favoritDrinks);
 }
-// for (let i of arrOfDrinks) {
-//   let temporerry = i.drinks[0];
-
-//   const objDrink = {};
-
-//   objDrink.idDrink = temporerry.idDrink;
-//   objDrink.name = temporerry.strDrink;
-//   objDrink.instruction = temporerry.strInstructions;
-//   // objDrink.ingriditents = [];
-// for (let i = 1; i <= 15; i++) {
-//   if (
-//     item.drinks[0][`strIngredient${i}`] === '' ||
-//     item.drinks[0][`strIngredient${i}`] === null
-//   )
-//     continue;
-//   drink.ingriditents.push(
-//     item.drinks[0][`strMeasure${i}`] +
-//     ' ' +
-//     item.drinks[0][`strIngredient${i}`]
-//   );
-
-//   // console.log('q = ', item.drinks[0][`strMeasure${i}`]);
-//   // console.log('? = ', item.drinks[0][`strIngredient${i}`]);
-// }
-// console.log(' objDrink == ', objDrink);
-
-//console.log('objDrink   =///=== ', objDrink);
-//     let myClass = '';
-//     let myTextContent = '';
-//     if (idDrink in favoritDrinks) {
-//       myTextContent = 'Remove';
-//       myClass = 'drink__choice  done';
-//     } else {
-//       myTextContent = 'Add to';
-//       myClass = 'drink__choice';
-//     }
-//     return `<li class="card">
-//         <img src="${strDrinkThumb}" alt="${strDrink}" class="drink__img"/><h3 class="drink__name">${strDrink}</h3><div class="drink__buttons"><span class="drink__leamMore"> Learn more</span><span class="${myClass}" data-ID="${idDrink}">${myTextContent}</span></div></li>`;
-//   });
-// console.log('=====', htmlElements.listOfDrinks);
-//  htmlElements.listOfDrinks.insertAdjacentHTML('beforeend', arrOfCards.join(''));
-//  // htmlElements.listOfDrinks.innerHTML = arrOfCards.join('');
-//   return arrOfCards.join('');

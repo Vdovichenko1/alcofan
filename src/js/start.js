@@ -2,18 +2,19 @@ import { initPage } from './initpage';
 import { getNumberElement } from './initpage';
 import { getData } from './fetch';
 
+import { fetchService } from './initpage';
+
 
 export const htmlElements = {
   listOfDrinks: document.querySelector('.gallery'),
   leter: document.querySelector('.ABC-picker'),
-  number: document.querySelector('.numbers-picker'),
-  select: document.querySelector('.select-picker'),
+  select: document.querySelector('.datalist'),
 };
+
 
 initPage();
 
 htmlElements.leter.addEventListener('click', handlerChoice);
-htmlElements.number.addEventListener('click', handlerChoice);
 htmlElements.select.addEventListener('change', handlerChoice);
 document.addEventListener('keydown', handlerChoice);
 
@@ -36,6 +37,6 @@ function handlerChoice(e) {
       break;
     default:
       return;
-    }
-     getData(getNumberElement(), key); // у меня нет запроса под key
+  }
+  getData(getNumberElement(), key); // у меня нет запроса под key
 }
