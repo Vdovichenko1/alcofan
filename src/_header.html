@@ -1,0 +1,51 @@
+<header class="header">
+  <div class="container header__container">
+    <a class="logo link" href="./index.html">
+      <span class="logo__text">Coctails</span>
+      <img class="logo__icon" src="./img/logo.png" alt="Logo" />
+      <!-- <svg class="logo__icon" width="38" height="38">
+        <use href=""></use>
+      </svg> -->
+    </a>
+    <nav class="navigation">
+      <a class="navigation__link link" href="./index.html">Home</a>
+      <a class="navigation__link link" href="./favorite.html">Favorite</a>
+    </nav>
+
+    <form class="search-form" id="search-form">
+      <input
+        class="search-form__input"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button class="search-form__btn" type="submit">
+        <svg class="search__icon" width="20" height="20">
+          <use href="./img/symbol-defs.svg#icon-bx_search"></use>
+        </svg>
+      </button>
+    </form>
+
+    <div class="theme-switch">
+      <p class="theme-switch__text-white">Light</p>
+      <div class="theme-switch__control">
+        <input
+          class="theme-switch__toggle"
+          type="checkbox"
+          name="theme"
+          id="theme-switch-toggle"
+          aria-label="Переключить между тёмной и светлой темой"
+        />
+        <label
+          aria-hidden="true"
+          class="theme-switch__track"
+          for="theme-switch-toggle"
+        >
+        </label>
+        <div aria-hidden="true" class="theme-switch__marker"></div>
+      </div>
+      <p class="theme-switch__text-black">Dark</p>
+    </div>
+  </div>
+</header>

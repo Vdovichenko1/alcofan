@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cocktails</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon-32x32.png"
+    />
+    <script type="module" src="./index.js"></script>
+  </head>
+  <style>
+    .light {
+      background-color: #ddd;
+    }
+    .dark {
+      background-color: #444;
+    }
+
+    .card {
+      transform: translateX(150px);
+      opacity: 0.1;
+      transition: 300ms;
+    }
+    .show {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  </style>
+  <body>
+    <include src="./_header.html"></include>
+    <include src="./_favorite.html"></include>
+    <include src="./_footer.html"></include>
+
+    <script type="module" src="./js/switch-theme.js"></script>
+    <script type="module" src="./js/datalist.js"></script>
+  </body>
+</html>

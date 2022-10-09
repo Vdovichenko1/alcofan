@@ -1,51 +1,3 @@
-<header class="header">
-  <div class="container header__container">
-    <a class="logo link" href="#">
-      <span class="logo__text">Coctails</span>
-      <img class="logo__icon" src="./img/logo.png" alt="Logo" />
-      <!-- <svg class="logo__icon" width="38" height="38">
-        <use href=""></use>
-      </svg> -->
-    </a>
-    <nav class="navigation">
-      <a class="navigation__link link" href="#">Home</a>
-      <a class="navigation__link link" href="#">Favorite</a>
-    </nav>
-
-    <form class="search-form" id="search-form">
-      <input
-        class="search-form__input"
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button class="search-form__btn" type="submit">&#128269;</button>
-    </form>
-
-    <div class="theme-switch">
-      <p class="theme-switch__text-white">Light</p>
-      <div class="theme-switch__control">
-        <input
-          class="theme-switch__toggle"
-          type="checkbox"
-          name="theme"
-          id="theme-switch-toggle"
-          aria-label="Переключить между тёмной и светлой темой"
-        />
-        <label
-          aria-hidden="true"
-          class="theme-switch__track"
-          for="theme-switch-toggle"
-        >
-        </label>
-        <div aria-hidden="true" class="theme-switch__marker"></div>
-      </div>
-      <p class="theme-switch__text-black">Dark</p>
-    </div>
-  </div>
-</header>
-
 <main>
   <!-- hero -->
   <section class="section">
@@ -54,8 +6,8 @@
         <h2 class="section__title visually-hidden">Hero section</h2>
         <p class="hero__lable">A party without cocktails is not like a party</p>
         <p class="hero__text">Search your favorite cocktail by ABC</p>
-        <div class="ABC-picker">
-          <span class="hero__letter active">A</span>
+        <ul class="ABC-picker list">
+          <!-- <span class="hero__letter active">A</span>
           <span class="hero__letter">B</span>
           <span class="hero__letter">C</span>
           <span class="hero__letter">D</span>
@@ -90,8 +42,8 @@
           <span class="hero__letter">7</span>
           <span class="hero__letter">8</span>
           <span class="hero__letter">9</span>
-          <span class="hero__letter">0</span>
-        </div>
+          <span class="hero__letter">0</span> -->
+        </ul>
         <div class="datalist">
           <input
             class="datalist__input"
@@ -140,9 +92,9 @@
             <option class="datalist__option" value="9">9</option>
             <option class="datalist__option" value="0">0</option>
           </datalist>
-          <!-- <svg class="datalist__icon" width="24" height="24">
-            <use href="./img/chevron-down.svg"></use>
-          </svg> -->
+          <svg class="datalist__icon" width="24" height="24">
+            <use href="./img/symbol-defs.svg#chevron-down"></use>
+          </svg>
         </div>
       </div>
       <picture>
@@ -190,7 +142,7 @@
     <div class="container">
       <h1 class="section__title">Cocktails</h1>
       <ul class="gallery list">
-        <li class="card">
+        <!-- <li class="card">
           <img
             class="card__img"
             src="#"
@@ -276,9 +228,8 @@
               </button>
             </div>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </section>
 </main>
-<footer class="footer"></footer>
