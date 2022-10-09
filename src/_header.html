@@ -9,7 +9,18 @@
     </a>
     <nav class="navigation">
       <a class="navigation__link link" href="./index.html">Home</a>
-      <a class="navigation__link link" href="./favorite.html">Favorite</a>
+      <div class="dropdown">
+        <button class="dropdown__btn">
+          Favorite <span class="dropdown__icon">&#8964;</span>
+        </button>
+        <div class="dropdown__content">
+          <a class="dropdown__link" href="./favorite.html">Favorite coctails</a>
+          <a class="dropdown__link" href="./favorite.html"
+            >Favorite ingridients</a
+          >
+        </div>
+      </div>
+      <!-- <a class="navigation__link link" href="./favorite.html">Favorite</a> -->
     </nav>
 
     <form class="search-form" id="search-form">
