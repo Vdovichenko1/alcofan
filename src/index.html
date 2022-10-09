@@ -5,10 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cocktails</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon-32x32.png"
+    />
     <script type="module" src="./index.js"></script>
   </head>
+  <style>
+    .light {
+      background-color: #ddd;
+    }
+    .dark {
+      background-color: #444;
+    }
+
+    .card {
+      transform: translateX(150px);
+      opacity: 0.1;
+      transition: 300ms;
+    }
+    .show {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  </style>
   <body>
+    <input type="checkbox" value="B&W" class="js__dark-and-light" />
+    <div class="ABC-picker"></div>
+    <div class="numbers-picker"></div>
+    <div class="select-picker"></div>
+    <ul class="gallery"></ul>
     <include src="./_1index.html"></include>
     <include src="./favorite.html"></include>
   </body>
