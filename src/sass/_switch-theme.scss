@@ -1,11 +1,17 @@
+body.light-theme {
+  background-color: $background-light;
+  color: $background-dark;
+}
+
 body.dark-theme {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: $background-dark;
+  color: $background-light;
 }
 
 .theme-switch {
   display: none;
   align-items: center;
+  margin-right: 50px;
 
   @media screen and (min-width: 1280px) {
     display: flex;
@@ -13,7 +19,7 @@ body.dark-theme {
 }
 
 .theme-switch__text-white {
-  color: #fd5103;
+  color: $font-secondary-color;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.7;
@@ -21,7 +27,7 @@ body.dark-theme {
 }
 
 .theme-switch__text-black {
-  color: #5f6775;
+  color: $font-letterpick;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.7;
@@ -37,7 +43,7 @@ body.dark-theme {
   height: 20px;
   border-radius: 50em;
   padding: 3px 0;
-  border: 0.604701px solid #fd5103;
+  border: 0.604701px solid $font-secondary-color;
 }
 
 .theme-switch__toggle {
@@ -59,7 +65,7 @@ body.dark-theme {
   height: 100%;
   color: transparent;
   user-select: none;
-  background-color: #ffffff;
+  background-color: $background-light;
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
@@ -67,7 +73,7 @@ body.dark-theme {
 
 .theme-switch__marker {
   position: relative;
-  background-color: #fd5103;
+  background-color: $font-secondary-color;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -78,115 +84,22 @@ body.dark-theme {
 }
 
 .theme-switch__toggle:checked + .theme-switch__track {
-  background-color: #fd5103;
-  border: 0.604701px solid #ffffff;
+  background-color: $font-secondary-color;
+  border: 0.604701px solid $background-light;
 }
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
   transform: translateX(20px);
-  background-color: #ffffff;
+  background-color: $background-light;
 }
 
 .theme-switch__toggle:checked + .theme-switch__text-black {
-  color: #fd5103;
+  color: $font-secondary-color;
 }
 
 .theme-switch__toggle:checked + .theme-switch__text-white {
-  color: #5f6775;
-}
-body.light-theme {
-  background-color: #ffffff;
-  color: #000000;
-}
-body.dark-theme {
-  background-color: #000000;
-  color: #ffffff;
+  color: $font-letterpick;
 }
 
-// .theme-switch {
-//     display: flex;
-//     align-items: center;
-// }
 
-// .theme-switch__text-white {
-//     color: #FD5103;
-//     font-weight: 400;
-//     font-size: 14px;
-//     line-height: 1.7;
-//     margin-right: 12px;
-// }
 
-// .theme-switch__text-black {
-//     color: #5F6775;
-//     font-weight: 400;
-//     font-size: 14px;
-//     line-height: 1.7;
-//     margin-left: 12px;
-// }
-
-// .theme-switch__control {
-//     display: flex;
-//     align-items: center;
-//     flex-shrink: 0;
-//     position: relative;
-//     width: 40px;
-//     height: 20px;
-//     border-radius: 50em;
-//     padding: 3px 0;
-//     border: 0.604701px solid #FD5103;
-// }
-
-// .theme-switch__toggle {
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     margin: 0;
-//     padding: 0;
-//     opacity: 0;
-//     height: 0;
-//     width: 0;
-//     pointer-events: none;
-// }
-// .theme-switch__track {
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     width: 100%;
-//     height: 100%;
-//     color: transparent;
-//     user-select: none;
-//     background-color: #FFFFFF;
-//     border-radius: inherit;
-//     z-index: 1;
-//     cursor: pointer;
-// }
-
-// .theme-switch__marker {
-//     position: relative;
-//     background-color: #FD5103;
-//     width: 16px;
-//     height: 16px;
-//     border-radius: 50%;
-//     z-index: 2;
-//     pointer-events: none;
-//     transform: translateX(1px);
-//     transition: transform 250ms linear;
-// }
-
-// .theme-switch__toggle:checked+.theme-switch__track {
-//     background-color: #FD5103;
-//     border: 0.604701px solid #FFFFFF;
-// }
-
-// .theme-switch__toggle:checked~.theme-switch__marker {
-//     transform: translateX(20px);
-//     background-color: #FFFFFF;
-// }
-
-// .theme-switch__toggle:checked + .theme-switch__text-black {
-//     color: #FD5103;
-// }
-
-// .theme-switch__toggle:checked + .theme-switch__text-white {
-//     color: #5F6775;
-// }

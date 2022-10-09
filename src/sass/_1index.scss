@@ -111,7 +111,10 @@
 .search-form {
   display: none;
   position: relative;
-  margin-right: 172px;
+  @media screen and (min-width: 1280px){
+    margin-right: 172px;
+  }
+  
 
   &__input {
     padding-left: 45px;
