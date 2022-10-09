@@ -109,28 +109,52 @@
 }
 
 .hero__lable {
+  width: 300px;
   color: $font-secondary-color;
   font-weight: 600;
-  font-size: 52px;
-  line-height: 1.53;
+  font-size: 22px;
+  line-height: 1.9;
   margin-top: 60;
   margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.6;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 688px;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 1.53;
+  }
 }
 
 .hero__text {
   color: $font-letterpick;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 1.56;
+  font-size: 14px;
+  line-height: 2;
   margin-top: 0;
   margin-bottom: 40px;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.56;
+  }
 }
 
 .ABC-picker {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 520px;
+  width: 324px;
+
+  @media screen and (min-width: 1280px) {
+    width: 520px;
+  }
 
   @media screen and (max-width: 767px) {
     display: none;
@@ -163,7 +187,7 @@
 
 // datalist
 .datalist {
-  // position: relative;
+  position: relative;
   display: flex;
   justify-content: center;
   margin-right: auto;
@@ -208,11 +232,12 @@
 }
 
 .datalist__icon {
-  // position: absolute;
+  position: absolute;
   display: block;
-  color: black;
-  fill: currentColor;
-  transform: translateX(-110%);
+  fill: $font-secondary-color;
+  right: 110;
+  top: 8;
+  pointer-events: none;
 }
 
 // gallery
