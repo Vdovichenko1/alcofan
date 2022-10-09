@@ -7,95 +7,75 @@ export default class FetchService {
     this.searchQuery = '';
     this.letter = '';
     this.idCoctail = '';
-    this.idIngridient = '';
+    this.ingName = '';
+    this.idIngr = '';
     this.ings = {};
-    
   }
-
+  
+  /*Один коктейль random*/
   async randomCoctail() {
-    const url = 'json/v1/1/random.php';   /*Один коктейль random*/
+    const url = 'json/v1/1/random.php'; 
     const response = await axios.get(url);
     console.log(response.data.drinks[0]);
     return response.data.drinks[0];
-
-  }
-  randomCoctailOnStart() {
-    const url = 'json/v1/1/random.php';   
-    const response = axios.get(url);
-    return response;
   }
 
-  async byNameCoctail(number, query = this.searchQuery) {
-        console.log('по имени');
-        if(!query) {
-          console.log('Enter searchQuery');
-          return;
-        }
-        const url = `json/v1/1/search.php?s=${query.trim()}`;
-        const response = await axios.get(url);
-        console.log(response);
-        const drinks = response.data.drinks;
-        if (!drinks) {
-          console.log("Sorry we didn't find any coctails");
-          return;
-        }
-        if(number === 3 && drinks.length > 3) {
-          console.log(drinks.slice(0,3));
-          console.log('3 dinks');
-          return drinks.slice(0,3);
-        }
-        if(number === 6 && drinks.length > 6) {
-          console.log(drinks.slice(0,6));
-          console.log('6 dinks');
-          return drinks.slice(0,6);
-        }
-        if(number === 9 && drinks.length > 9) {
-          console.log(drinks.slice(0,9));
-          console.log('9 dinks');
-          return drinks.slice(0,9);
-        }
-        console.log(drinks);
-        return drinks;
+  /* массив объектов коктейлей рандом*/
+  async randomCoctailsOnStart(number = 9) { 
+    const coctailsPr = [];
+    const url = 'json/v1/1/random.php';
+    for (let index = 0; index < number; index += 1) {
+      coctailsPr.push(axios.get(url));
+    }
+    const data = await Promise.all(coctailsPr);
+    const coctails = data.map(coctail => coctail.data.drinks[0]);
+    console.log(coctails);
+    return coctails; 
   }
 
-  async byLetterCoctail(number, query = this.letter) {
+  /*поиск по имени, вернет массив объектов коктейлей*/
+  async byNameCoctail(query = this.searchQuery) { 
+    console.log('по имени');
+    if (!query) {
+      console.log('Enter searchQuery');
+      return;
+    }
+    const url = `json/v1/1/search.php?s=${query.trim()}`;
+    const response = await axios.get(url);
+    const drinks = response.data.drinks;
+    if (!drinks) {
+      console.log("Sorry we didn't find any coctails");
+      return;
+    }
+    console.log(drinks);
+    return drinks;
+  }
+
+  /* поиск по первой букве, массив объектов коктейлей */
+  async byLetterCoctail(query = this.letter) { 
     console.log('по букве');
-    if(!query) {
+    if (!query) {
       console.log('Enter searchQuery');
       return;
     }
     const url = `json/v1/1/search.php?f=${query}`;
     const response = await axios.get(url);
     const drinks = response.data.drinks;
-        if (!drinks) {
-        console.log("Sorry we didn't find any coctails");
-        return;
-        }
-        if(number === 3 && drinks.length > 3) {
-          console.log(drinks.slice(0,3));
-          console.log('3 dinks');
-          return drinks.slice(0,3);
-        }
-        if(number === 6 && drinks.length > 6) {
-          console.log(drinks.slice(0,6));
-          console.log('6 dinks');
-          return drinks.slice(0,6);
-        }
-        if(number === 9 && drinks.length > 9) {
-          console.log(drinks.slice(0,9));
-          console.log('9 dinks');
-          return drinks.slice(0,9);
-        }
-        console.log(drinks);
-        return drinks;
+    if (!drinks) {
+      console.log("Sorry we didn't find any coctails");
+      return;
+    }
+    console.log(drinks);
+    return drinks;
   }
 
-  async byIdCoctail(id = this.idCoctail) {
+  /*поиск по ID коктейля, вернет объект коктейля */
+  async byIdCoctail(id = this.idCoctail) {  
     console.log('по ID');
     console.log('ID', id);
     const url = `json/v1/1/lookup.php?i=${id}`;
     const response = await axios.get(url);
-    if(!response.data.drinks) {
+    if (!response.data.drinks) {
       console.log("Sorry we didn't find any coctails");
       return;
     }
@@ -103,87 +83,101 @@ export default class FetchService {
     return response.data.drinks[0];
   }
 
-  async byIdIngridient(id = this.idCoctail) {
-    console.log('Ингридиенты по ID');
-    const url = `json/v1/1/lookup.php?iid=${id}`;
+  /*поиск по имени ингредиента, вернет объект описания ингредиента */
+  async byIngrName(ing = this.ingName) { 
+    console.log('Описание ингридиента по имени');
+    const url = `json/v1/1/search.php?i=${ing}`;
     const response = await axios.get(url);
-    if(!response.data.ingredients) {
-      console.log("Sorry we didn't find any coctails");
+    if (!response.data.ingredients) {
+      console.log("Sorry we didn't find any Ingredients");
       return;
     }
     console.log(response.data.ingredients[0]);
     return response.data.ingredients[0];
   }
-  
 
-  //Ingredients
-  fetchIngredients(obj = this.ings) {  //получает объект drink {}
-    const ingAr = [];
-  for (let index = 1; index < 16; index+=1) {
-    const el = obj[`strIngredient${index}`];
-    if (!el) {
-      break;
+  /*поиск по ID ингредиента, вернет объект описания ингредиента */
+  async byIngridientId(id = this.idIngr) {
+    console.log('Ингридиент по ID ингридиента');
+    const url = `json/v1/1/lookup.php?iid=${id}`;
+    const response = await axios.get(url);
+    if (!response.data.ingredients) {
+      console.log("Sorry we didn't find any Ingredients");
+      return;
     }
-    ingAr.push(el);
-  }
-  return ingAr; //массив ингридиентов
+    console.log(response.data.ingredients[0]);
+    return response.data.ingredients[0];
   }
 
+
+  /* Запишет в массив ингредиенты коктейля из объекта коктейля*/
+  fetchIngredients(obj = this.ings) {     //получает объект drink {}
+    const ingAr = [];
+    for (let index = 1; index < 16; index += 1) {
+      const el = obj[`strIngredient${index}`];
+      if (!el) {
+        break;
+      }
+      ingAr.push(el);
+    }
+    console.log(ingAr);
+    return ingAr; //массив ингридиентов
+  }
 }
 
-// const fetchService = new FetchService();
+const fetchService = new FetchService();
+document.body.innerHTML = '';
 
-// fetchService.byNameCoctail(9,'margarita');
-// fetchService.byLetterCoctail(6,'m');
+// fetchService.randomCoctailsOnStart(); // Ожидает число, возврашает  массив объектов (по дефолту вернет 9 рандомных коктейлей)
+
+// fetchService.byNameCoctail('margarita'); // Ожидает строку, возврашает массив объектов коктейлей
+// fetchService.byLetterCoctail('m'); // Ожидает первую букву, возврашает массив объектов коктейлей
+// fetchService.byIdCoctail(12654); // Ожидает IDкоктейля, возврашает объект коктейля
+// fetchService.byIngrName('lemon'); // Ожидает имя ингр, возврашает объект одного ингредиента с описанием
+// fetchService.byIngridientId(299); //Ожидает номер ингр, возврашает объект одного ингредиента с описанием
+
+// fetchService.fetchIngredients(obj); // Ожидает объект коктейл, возвращает массив ингредиентов
+
 
 // document.body.insertAdjacentHTML('beforeend', '<button class="test-button">Test button</button>');
 // document.body.insertAdjacentHTML('beforeend', '<div class="js-box"></div>');
 // const testDiv = document.querySelector('.js-box');
 
-// 9 random coctails
-
-// async function onStart() {
-//   const coctailsPr = [];
-//   for (let index = 0; index < 9; index +=1) {
-//     coctailsPr.push(fetchService.randomCoctailOnStart());
-//   }
-//   const coctails = await Promise.all(coctailsPr);
-//   return coctails;
-// }
+// // 9 random coctails
 
 // const testClick = document.querySelector('.test-button');
 // testClick.addEventListener('click', onTestClick);
 
 // async function onTestClick() {
-//   const response = await onStart();
+//   const response = await fetchService.randomCoctailsOnStart();
 //   renderCoctailsAll(response);
 //   testDiv.addEventListener('click', onLearnMore)
 // }
 
-// // Render markup 9 coctails
+// // // Render markup 9 coctails
 
 // function renderCoctailsAll(prm) {
 //   const markup = prm
 //     .map(
 //       image =>
 //         (image = `
-//             <div class="thumb">            
-//             <img src="${image.data.drinks[0].strDrinkThumb}" alt="" loading="lazy" width=320 heigth=320 />
+//             <div class="thumb">
+//             <img src="${image.strDrinkThumb}" alt="" loading="lazy" />
 //             </div>
-//             <button type="button" class="js-learn-more" data-id="${image.data.drinks[0].idDrink}">Learn more</button>
+//             <button type="button" class="js-learn-more" data-id="${image.idDrink}">Learn more</button>
 //           `)
 //     )
 //     .join('');
 //     testDiv.innerHTML = markup;
 // }
 
-// // Render markup 1 coctail
+// // // Render markup 1 coctail
 
 // function renderCoctail(prm) {
 //   fetchService.ings = prm;
 //   const ingredients = fetchService.fetchIngredients();
 //     const markup = `
-//               <div class="thumb">            
+//               <div class="thumb">
 //               <img src="${prm.strDrinkThumb}" alt="" loading="lazy"  />
 //               <p>Name: ${prm.strDrink}</p>
 //               <p>Alcohol: ${prm.strAlcoholic}</p>
@@ -198,8 +192,81 @@ export default class FetchService {
 //   async function onLearnMore(evt) {
 //     const response = await fetchService.byIdCoctail(evt.target.dataset.id);
 //     renderCoctail(response);
-      
+
 //     }
+
+
+// // Ingredients
+
+// async function onTestIngredients() {
+//   const response = await fetchService.byIdCoctail(12654);
+  
+//   console.log(fetchService.fetchIngredients(response));
+// }
+// onTestIngredients();
+
+
+
+// Работа c Localstorage
+
+// async function saveMessage() {
+// const byId = await fetchService.byIdCoctail('16311');
+// localStorage.setItem('COCTAIL', JSON.stringify(byId));
+// }
+// saveMessage();
+
+// function loadMessage() {
+//   const load =JSON.parse(localStorage.getItem('COCTAIL'));
+// console.log('favorite',load);
+// }
+// loadMessage();
+
+
+
+
+
+
+
+
+//Архив
+
+// async byLetterCoctail(number, query = this.letter) {
+  //   console.log('по букве');
+  //   if (!query) {
+  //     console.log('Enter searchQuery');
+  //     return;
+  //   }
+  //   const url = `json/v1/1/search.php?f=${query}`;
+  //   const response = await axios.get(url);
+  //   const drinks = response.data.drinks;
+  //   if (!drinks) {
+  //     console.log("Sorry we didn't find any coctails");
+  //     return;
+  //   }
+  //   console.log(drinks.slice(0, number));
+  //   console.log(`${number} dinks`);
+  //   return drinks.slice(0, number);
+  // }
+
+    // async byNameCoctail(number, query = this.searchQuery) {
+  //   console.log('по имени');
+  //   if (!query) {
+  //     console.log('Enter searchQuery');
+  //     return;
+  //   }
+  //   const url = `json/v1/1/search.php?s=${query.trim()}`;
+  //   const response = await axios.get(url);
+  //   const drinks = response.data.drinks;
+  //   if (!drinks) {
+  //     console.log("Sorry we didn't find any coctails");
+  //     return;
+  //   }
+  //   console.log(drinks.slice(0, number));
+  //   console.log(`${number} dinks`);
+  //   return drinks.slice(0, number);
+  // }
+
+
 
 
 
