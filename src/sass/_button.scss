@@ -8,6 +8,7 @@
   margin-left: auto;
   margin-right: auto;
   background-color: $btn-primary;
+  color: $background-light;
 
   font-family: Roboto, sans-serif;
   font-weight: 400;
@@ -25,11 +26,13 @@
   &:hover {
     background-color: $btn-focus;
     border: 2px solid $btn-focus;
+    color: $btn-active;
   }
 
   &:active {
     background-color: $btn-active;
     border: 2px solid $btn-active;
+    color: $background-light;
   }
 
   &--remove {
@@ -107,4 +110,10 @@
   @media screen and (max-width: 767px) {
     margin-left: 2px;
   }
+}
+
+
+.card__instruction,
+.card__ingridients {
+  display: none;
 }

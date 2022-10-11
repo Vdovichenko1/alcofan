@@ -10,8 +10,7 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
   let htmlStrings = [];
   const h1 = document.querySelector('h1.section__title');
   if (arrOfIngridients.length === 0) {
-    htmlElements.listOfDrinks.innerHTML = `<div class="card-error">Sorry, we didn't find any description for
-     you <img src="./img/frame.png"/></div>`;
+    htmlElements.listOfDrinks.innerHTML = `<div class="card-error"> <span class="card-error__text">Sorry, we didn't find any cocktail for you</span> <div class="card-error__img"></div></div>`;
     return;
   } else {
     htmlStrings = arrOfIngridients.map(el => {
