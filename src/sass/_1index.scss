@@ -311,7 +311,8 @@
 
 .card {
   width: 100%;
-  outline: 1px solid red;
+  border: 1px solid #FD5103;
+  border-radius: 4px;
 
   @media screen and (min-width: 768px) {
     width: calc((100% - 32px) / 2);
