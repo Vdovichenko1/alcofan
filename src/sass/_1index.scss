@@ -390,7 +390,7 @@
 
 @media screen and (min-width: 768px) {
   .card-error__img{
-    // background-image: url(../img/frame.png);
+    background-image: url(../img/frame-mob.png);
     width: 345px;
     height: 380px;
     margin-top: 70px;
@@ -405,9 +405,9 @@
     line-height: 1.9;
     width: 280px;
   }
-  .card-error__img {
-    background-image: url(../img/frame-mob.png);
-  }
+  // .card-error__img {
+  //   background-image: url(../img/frame-mob.png);
+  // }
 }
 
 footer {
