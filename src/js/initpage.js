@@ -72,9 +72,9 @@ export const observerForAmination = new IntersectionObserver(
   { rootMargin: '-100px' }
 );
 
-// export const observerForLoad = new IntersectionObserver(entries => {
-//   if (!entries[0].isIntersecting) return;
-//   console.log('нужні новіе карточки', entries.length);
-//   getData(entries.length);
-//   observerForLoad.unobserve(entries[0].target);
-// });
+export const observerForLoad = new IntersectionObserver(entries => {
+  if (!entries[0].isIntersecting) return;
+  console.log('нужні новіе карточки', getNumberElement());
+  getCards(entries.length);
+  observerForLoad.unobserve(entries[0].target);
+});
