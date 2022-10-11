@@ -50,15 +50,17 @@ export function createMarkUpCards(arrOfDrinks, param) {
       'beforeend',
       htmlStrings.join('')
     );
+    observerForLoad.observe(document.querySelector('.card:last-child'));
   } else {
     htmlElements.listOfDrinks.innerHTML = htmlStrings.join('');
+    
   }
 
   document
     .querySelectorAll('.card')
     .forEach(i => observerForAmination.observe(i));
 
-  //observerForLoad.observe(document.querySelector('.card:last-child'));
+  
 
   document.querySelectorAll('.btn-add').forEach(item => {
     item.addEventListener('click', newChooseDrink);
@@ -94,5 +96,5 @@ function openIngridient(e) {
   getCardsByIngridient(e.currentTarget.dataset.ingridient);
 }
 function showMoreAboutCoctail(e) {
-  document.querySelector('.modal_cocktail').innerHTML = e.currentTarget.closest(".card").innerHTML;
+  document.querySelector('.modal-coctail').innerHTML = e.currentTarget.closest('.card').innerHTML;
 }

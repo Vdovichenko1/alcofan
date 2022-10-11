@@ -6,7 +6,7 @@ import { KEY_LOCAL_STORAGE_FAVORITE_DRINKS } from './initpage';
 import { KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS } from './initpage';
 
 export function createMarkUpIngridients(arrOfIngridients, param) {
-    console.log('hello', arrOfIngridients);
+  console.log('hello', arrOfIngridients);
   let htmlStrings = [];
   const h1 = document.querySelector('h1.section__title');
   if (arrOfIngridients.length === 0) {
@@ -25,7 +25,7 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
         myClass = 'btn-add ingridient';
       }
 
-        const myStr = `<div class="card-ingridient">
+      const myStr = `<div class="card-ingridient">
       <h3 class="card-ingridient__head">${el.strIngredient}</h3><p class="card-ingridient__type">${el.strType}</p><p class="card-ingridient__description">${el.strDescription}</p>
           <ul>
             <li>Type: Unknow</li>
@@ -45,31 +45,35 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
             </button>
           </div>
         </div>`;
-        
-        return myStr
+
+      return myStr;
     });
-    }
-    console.log('param.display', param.display);
-    if (param.display === 'modal') {
-      console.log('document.querySelector', document.querySelector('.modal_ingridient'));
-    document.querySelector('.modal_ingridient').innerHTML =
+  }
+  console.log('param.display', param.display);
+  if (param.display === 'modal') {
+    console.log(
+      'document.querySelector',
+      document.querySelector('.modal-ingridient')
+    );
+    document.querySelector('.modal-ingridient').innerHTML =
       htmlStrings.join('');
   } else if (param.display === 'list') {
+    h1.innerHTML = param.h1Change;
     htmlElements.listOfDrinks.innerHTML = htmlStrings.join('');
   }
 
-//   document
-//     .querySelectorAll('.card-ingridient')
-//     .forEach(i => observerForAmination.observe(i));
+  //   document
+  //     .querySelectorAll('.card-ingridient')
+  //     .forEach(i => observerForAmination.observe(i));
 
   //observerForLoad.observe(document.querySelector('.card:last-child'));
 
   document.querySelectorAll('.btn-add.ingridient').forEach(item => {
     item.addEventListener('click', newChooseIngridient);
   });
-     document.querySelectorAll('.btn.btn--lm').forEach(item => {
-       item.addEventListener('click', showMoreAboutIngridient);
-     });
+  document.querySelectorAll('.btn.btn--lm').forEach(item => {
+    item.addEventListener('click', showMoreAboutIngridient);
+  });
 }
 
 function newChooseIngridient(e) {
@@ -90,6 +94,6 @@ function newChooseIngridient(e) {
   console.log('favoritDrinks', favoritDrinks);
 }
 function showMoreAboutIngridient(e) {
-  document.querySelector('.modal_ingridient').innerHTML =
+  document.querySelector('.modal-ingridient').innerHTML =
     e.currentTarget.closest('.card-ingridient').innerHTML;
 }
