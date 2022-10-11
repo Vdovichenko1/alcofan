@@ -232,6 +232,7 @@
 }
 
 .ABC-picker {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -248,6 +249,7 @@
 }
 
 .hero__letter {
+  list-style-type: none;
   display: block;
   width: 40px;
   height: 40px;
@@ -257,7 +259,7 @@
   line-height: 1.5;
   text-align: center;
 
-  &.active {
+  &:hover {
     color: $font-secondary-color;
     text-shadow: #000 2px 0px 2px, #000 0px 2px 2px, #000 0px -2px 2px,
       #000 -2px 0px 2px;
@@ -336,7 +338,8 @@
 
 .card {
   width: 100%;
-  outline: 1px solid red;
+  border: 1px solid #FD5103;
+  border-radius: 4px;
 
   @media screen and (min-width: 768px) {
     width: calc((100% - 32px) / 2);
