@@ -108,7 +108,31 @@ export default class FetchService {
     console.log(response.data.ingredients[0]);
     return response.data.ingredients[0];
   }
+  /* Favorite coctails ожидает массив ID коктейлей , возвращает массив обьектов коктейлей */
+    async favoriteCoctailsById(arIdDrinks) { 
+    const arrayPromise = [];
+    for (let idDrink of arIdDrinks) {
+      const url = `json/v1/1/lookup.php?i=${idDrink}`;
+      arrayPromise.push(axios.get(url));
+    }
+    const data = await Promise.all(arrayPromise);
+    const coctails = data.map(coctail => coctail.data.drinks[0]);
+    console.log(coctails);
+    return coctails; 
+  }
 
+  /* Favorite coctails ожидает массив ID ингрединта , возвращает массив обьектов коктейлей */
+  async favoriteIngrById(arIdIngr) { 
+    const arrayPromise = [];
+    for (let idIngr of arIdIngr) {
+      const url = `json/v1/1/lookup.php?iid=${idIngr}`;
+      arrayPromise.push(axios.get(url));
+    }
+    const data = await Promise.all(arrayPromise);
+    const coctails = data.map(ingredient => ingredient.data.ingredients[0]);
+    console.log(coctails);
+    return coctails; 
+  }
 
   /* Запишет в массив ингредиенты коктейля из объекта коктейля*/
   fetchIngredients(obj = this.ings) {     //получает объект drink {}
@@ -137,6 +161,8 @@ export default class FetchService {
 // fetchService.byIngridientId(299); //Ожидает номер ингр, возврашает объект одного ингредиента с описанием
 
 // fetchService.fetchIngredients(obj); // Ожидает объект коктейл, возвращает массив ингредиентов
+// fetchService.favoriteCoctailsById(['12091','17066']);
+// fetchService.favoriteIngrById([299,299,299]);
 
 
 // document.body.insertAdjacentHTML('beforeend', '<button class="test-button">Test button</button>');
