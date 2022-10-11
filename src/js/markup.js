@@ -10,8 +10,7 @@ export function createMarkUpCards(arrOfDrinks, param) {
   let htmlStrings = [];
   const h1 = document.querySelector('h1.section__title');
   if (arrOfDrinks.length === 0) {
-    htmlElements.listOfDrinks.innerHTML = `<div class="card-error">Sorry, we didn't find any cocktail for
-     you <img src="./img/frame.png"/></div>`;
+    htmlElements.listOfDrinks.innerHTML = `<div class="card-error"> <span class="card-error__text">Sorry, we didn't find any cocktail for you</span> <div class="card-error__img"></div></div>`;
     h1.innerHTML = '';
     return;
   } else {
@@ -63,9 +62,9 @@ export function createMarkUpCards(arrOfDrinks, param) {
   document.querySelectorAll('.btn-add').forEach(item => {
     item.addEventListener('click', newChooseDrink);
   });
-    document.querySelectorAll('.btn.btn--lm').forEach(item => {
-      item.addEventListener('click', showMoreAboutCoctail);
-    });
+  document.querySelectorAll('.btn.btn--lm').forEach(item => {
+    item.addEventListener('click', showMoreAboutCoctail);
+  });
   document.querySelectorAll('.card__ingridients li').forEach(item => {
     item.addEventListener('click', openIngridient);
   });
@@ -94,5 +93,6 @@ function openIngridient(e) {
   getCardsByIngridient(e.currentTarget.dataset.ingridient);
 }
 function showMoreAboutCoctail(e) {
-  document.querySelector('.modal_cocktail').innerHTML = e.currentTarget.closest(".card").innerHTML;
+  document.querySelector('.modal_cocktail').innerHTML =
+    e.currentTarget.closest('.card').innerHTML;
 }
