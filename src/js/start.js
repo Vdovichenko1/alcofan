@@ -13,8 +13,8 @@ export const htmlElements = {
   select: document.querySelector('.datalist'),
   search: document.querySelector('.search-form'),
   searchIntup: document.querySelector('.search-form__input'),
-  favoritCoctails: document.querySelector('.hero__text'), // заменить на линк-дроп
-  favoritIngridients: document.querySelector('.hero__lable'), // заменить на линк-дроп
+  favoritCoctails: document.querySelector('.dropdown__link.coctails'), // заменить на линк-дроп
+  favoritIngridients: document.querySelector('.dropdown__link.ingridients'), // заменить на линк-дроп
 };
 console.log(htmlElements);
 

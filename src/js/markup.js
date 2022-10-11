@@ -49,6 +49,7 @@ export function createMarkUpCards(arrOfDrinks, param) {
       'beforeend',
       htmlStrings.join('')
     );
+    observerForLoad.observe(document.querySelector('.card:last-child'));
   } else {
     htmlElements.listOfDrinks.innerHTML = htmlStrings.join('');
   }
@@ -56,8 +57,6 @@ export function createMarkUpCards(arrOfDrinks, param) {
   document
     .querySelectorAll('.card')
     .forEach(i => observerForAmination.observe(i));
-
-  //observerForLoad.observe(document.querySelector('.card:last-child'));
 
   document.querySelectorAll('.btn-add').forEach(item => {
     item.addEventListener('click', newChooseDrink);
