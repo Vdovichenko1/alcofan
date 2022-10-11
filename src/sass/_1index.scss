@@ -1,6 +1,8 @@
 .header {
   height: 70px;
   background-color: inherit;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .header__container {
@@ -8,8 +10,6 @@
   justify-content: space-between;
   align-items: center;
 
-  padding-top: 15px;
-  padding-bottom: 15px;
   background-color: inherit;
 }
 
@@ -46,11 +46,13 @@
 .navigation {
   display: none;
   justify-content: space-between;
+
   align-items: center;
   margin-right: 251px;
 
   @media screen and (min-width: 1280px) {
     display: flex;
+    align-items: flex-end;
   }
 
   &__link {
@@ -72,7 +74,7 @@
     justify-content: space-between;
     font-size: 16px;
     border: none;
-    padding: 14px 16px;
+    padding: 14px 16px 0px 16px;
     background-color: transparent;
     font-family: inherit;
     margin: 0;
@@ -111,10 +113,9 @@
 .search-form {
   display: none;
   position: relative;
-  @media screen and (min-width: 1280px){
+  @media screen and (min-width: 1280px) {
     margin-right: 172px;
   }
-  
 
   &__input {
     padding-left: 45px;
@@ -156,8 +157,10 @@
 
 // hero
 .hero {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .hero__lable {
@@ -168,6 +171,8 @@
   line-height: 1.9;
   margin-top: 60;
   margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
 
   @media screen and (min-width: 768px) {
     width: 336px;
@@ -184,6 +189,28 @@
   }
 }
 
+.hero__picture {
+  margin-right: auto;
+  margin-left: auto;
+  @media screen and (min-width: 768px) {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
+}
+
+.hero__img {
+  width: 300px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 580px;
+  }
+}
+
 .hero__text {
   color: $font-letterpick;
   font-weight: 500;
@@ -191,6 +218,12 @@
   line-height: 2;
   margin-top: 0;
   margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+  }
 
   @media screen and (min-width: 1280px) {
     font-size: 18px;
@@ -204,6 +237,7 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 324px;
+  margin-bottom: auto;
 
   @media screen and (min-width: 1280px) {
     width: 520px;
@@ -229,13 +263,6 @@
     color: $font-secondary-color;
     text-shadow: #000 2px 0px 2px, #000 0px 2px 2px, #000 0px -2px 2px,
       #000 -2px 0px 2px;
-  }
-}
-
-.hero__img {
-  width: 300px;
-  @media screen and (min-width: 1280px) {
-    width: 580px;
   }
 }
 
@@ -289,7 +316,7 @@
   position: absolute;
   display: block;
   fill: $font-secondary-color;
-  right: 110;
+  right: 10;
   top: 8;
   pointer-events: none;
 }
@@ -311,7 +338,8 @@
 
 .card {
   width: 100%;
-  outline: 1px solid red;
+  border: 1px solid #FD5103;
+  border-radius: 4px;
 
   @media screen and (min-width: 768px) {
     width: calc((100% - 32px) / 2);
