@@ -380,35 +380,35 @@
     width: 493px;
 }
 
-.card-error__img {
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 280px;
-  height: 308px;
-  margin-top: 70px;
-}
+// .card-error__img {
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   width: 280px;
+//   height: 308px;
+//   margin-top: 70px;
+// }
 
-@media screen and (min-width: 768px) {
-  .card-error__img{
-    background-image: url(../img/frame.png);
-    width: 345px;
-    height: 380px;
-    margin-top: 70px;
-    background-size: contain;
-  }
-}
+// @media screen and (min-width: 768px) {
+//   .card-error__img{
+//     background-image: url(../img/frame.png);
+//     width: 345px;
+//     height: 380px;
+//     margin-top: 70px;
+//     background-size: contain;
+//   }
+// }
 
-@media screen and (max-width: 767px) {
-  .card-error__text {
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 1.9;
-    width: 280px;
-  }
-  .card-error__img {
-    background-image: url(../img/frame-mob.png);
-  }
-}
+// @media screen and (max-width: 767px) {
+//   .card-error__text {
+//     font-weight: 600;
+//     font-size: 22px;
+//     line-height: 1.9;
+//     width: 280px;
+//   }
+//   .card-error__img {
+//     background-image: url(../img/frame-mob.png);
+//   }
+// }
 
 footer {
   height: 100px;
