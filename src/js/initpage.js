@@ -1,11 +1,11 @@
 import { loadLocalStorage } from './localStorage';
 import { htmlElements } from './start';
-import { getData } from './fetch';
-import FetchService from './backend';
+import { getCards } from './fetch';
+//import { FetchService } from './backend';
 
 export let favoritDrinks = {};
 export let favoriteIngredients = {};
-export const fetchService = new FetchService();
+//export const fetchService = new FetchService();
 
 export const KEY_LOCAL_STORAGE_THEME = 'theme';
 export const KEY_LOCAL_STORAGE_FAVORITE_DRINKS = 'favorit_drinks';
@@ -14,25 +14,20 @@ export const KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS = 'favorite_ingredients';
 const arrayLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const arrayNumeral = '1234567890'.split('');
 
-const ref = {
-  alphabet: document.querySelector('.ABC-picker'),
-  numbers: document.querySelector('.numbers-picker'),
-  select: document.querySelector('.datalist'),
-};
 export function initPage() {
-  ref.alphabet.innerHTML = [...arrayLetters, ...arrayNumeral]
-    .map(
-      item => `<li class="hero__letter">${item}</li>
-    `
-    )
+  document.querySelector('.ABC-picker').innerHTML = [
+    ...arrayLetters,
+    ...arrayNumeral,
+  ]
+    .map(item => `<li class="hero__letter">${item}</li>`)
     .join('');
 
-  ref.select.innerHTML =
+  document.querySelector('.datalist').innerHTML =
     `<select class="select">` +
     [...arrayLetters, ...arrayNumeral]
       .map(
-        item => `<option class="datalist__option" value="${item}">${item}</option>
-      `
+        item =>
+          `<option class="datalist__option" value="${item}">${item}</option>`
       )
       .join('') +
     `</select>`;
@@ -47,15 +42,10 @@ export function initPage() {
       KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS
     );
   }
-  console.log(
-    'опросил локалсторедж favoriteIngredients = ',
-    favoriteIngredients
-  );
-  console.log("запросил данные = ", fetchService.randomCoctailsOnStart(2));
-  console.log(favoriteIngredients, favoritDrinks, getNumberElement());
-  console.log(getNumberElement());
-
-  getData(getNumberElement());
+  console.log('favoriteIngredients = ', favoriteIngredients);
+  console.log('кол-во карточек', getNumberElement());
+  //fetchService.randomCoctailsOnStart(getNumberElement());
+  getCards(getNumberElement());
 }
 export function getNumberElement() {
   const windowWidth = window.innerWidth;
@@ -79,12 +69,12 @@ export const observerForAmination = new IntersectionObserver(
       }
     });
   },
-  { rootMargin: '0px' }
+  { rootMargin: '-100px' }
 );
 
-export const observerForLoad = new IntersectionObserver(entries => {
-  if (!entries[0].isIntersecting) return;
-  console.log('нужні новіе карточки', entries.length);
-  getData(entries.length);
-  observerForLoad.unobserve(entries[0].target);
-});
+// export const observerForLoad = new IntersectionObserver(entries => {
+//   if (!entries[0].isIntersecting) return;
+//   console.log('нужні новіе карточки', entries.length);
+//   getData(entries.length);
+//   observerForLoad.unobserve(entries[0].target);
+// });
