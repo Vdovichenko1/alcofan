@@ -111,10 +111,9 @@
 .search-form {
   display: none;
   position: relative;
-  @media screen and (min-width: 1280px){
+  @media screen and (min-width: 1280px) {
     margin-right: 172px;
   }
-  
 
   &__input {
     padding-left: 45px;
@@ -156,8 +155,10 @@
 
 // hero
 .hero {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .hero__lable {
@@ -168,6 +169,8 @@
   line-height: 1.9;
   margin-top: 60;
   margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
 
   @media screen and (min-width: 768px) {
     width: 336px;
@@ -184,6 +187,28 @@
   }
 }
 
+.hero__picture {
+  margin-right: auto;
+  margin-left: auto;
+  @media screen and (min-width: 768px) {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
+}
+
+.hero__img {
+  width: 300px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 580px;
+  }
+}
+
 .hero__text {
   color: $font-letterpick;
   font-weight: 500;
@@ -191,6 +216,12 @@
   line-height: 2;
   margin-top: 0;
   margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+  }
 
   @media screen and (min-width: 1280px) {
     font-size: 18px;
@@ -203,6 +234,7 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 324px;
+  margin-bottom: auto;
 
   @media screen and (min-width: 1280px) {
     width: 520px;
@@ -227,13 +259,6 @@
     color: $font-secondary-color;
     text-shadow: #000 2px 0px 2px, #000 0px 2px 2px, #000 0px -2px 2px,
       #000 -2px 0px 2px;
-  }
-}
-
-.hero__img {
-  width: 300px;
-  @media screen and (min-width: 1280px) {
-    width: 580px;
   }
 }
 
@@ -287,7 +312,7 @@
   position: absolute;
   display: block;
   fill: $font-secondary-color;
-  right: 110;
+  right: 10;
   top: 8;
   pointer-events: none;
 }
