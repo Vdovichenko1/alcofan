@@ -17,18 +17,23 @@
           <!-- <a class="dropdown__link dropdown__link-coctails" href="#">Favorite coctails</a>
           <a class="dropdown__link dropdown__link-ingridients" href="#">Favorite ingridients</a> -->
         </div>
-      </div> 
+      </div>
       <!-- <a class="navigation__link link" href="./favorite.html">Favorite</a> -->
     </nav>
 
     <form class="search-form" id="search-form">
-      <input
-        class="search-form__input"
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search |"
-      />
+      <label>
+        <select name="select_type_of_search">
+          <option value="byCoctail">by Cocktail</option>
+          <option value="byIngridient">by Ingridient</option>
+        </select>
+        <input
+          class="search-form__input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search |"
+      /></label>
       <button class="search-form__btn" type="submit">
         <svg class="search__icon" width="20" height="20">
           <use href="./img/symbol-defs.svg#icon-bx_search"></use>
@@ -119,8 +124,12 @@
         <div class="dropdown">
           <button class="dropdown__btn">Favorite</button>
           <div class="dropdown__content">
-            <a class="dropdown__link dropdown__link-coctails" href="#">Favorite coctails</a>
-            <a class="dropdown__link dropdown__link-ingridients" href="#">Favorite ingridients</a>
+            <a class="dropdown__link dropdown__link-coctails" href="#"
+              >Favorite coctails</a
+            >
+            <a class="dropdown__link dropdown__link-ingridients" href="#"
+              >Favorite ingridients</a
+            >
           </div>
         </div>
       </nav>

@@ -140,8 +140,8 @@
     border-color: $font-secondary-color;
     background-color: transparent;
     position: absolute;
-    top: 2;
-    left: 38;
+    top: 25px;
+    left: 38px;
     transform: translateX(-106%);
     color: $font-secondary-color;
 
@@ -338,7 +338,7 @@
 
 .card {
   width: 100%;
-  border: 1px solid #FD5103;
+  border: 1px solid #fd5103;
   border-radius: 4px;
 
   @media screen and (min-width: 768px) {
@@ -371,13 +371,13 @@
   margin-right: auto;
 }
 
-.card-error__text{
+.card-error__text {
   font-family: 'Poppins';
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 1.5;
-    text-align: center;
-    width: 493px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.5;
+  text-align: center;
+  width: 493px;
 }
 
 .card-error__img {
@@ -389,7 +389,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .card-error__img{
+  .card-error__img {
     background-image: url(../img/error.png);
     width: 345px;
     height: 380px;
@@ -420,5 +420,3 @@ footer {
   text-align: center;
   color: $background-light;
 }
-
-
