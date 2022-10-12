@@ -94,3 +94,102 @@ export async function getCardsByFavoritIngridient(arrayIngridients) {
     createMarkUpIngridients([], { add: false, h1Change: '' });
   }
 }
+
+// -------------------------------------------------------------------------------------------------------------
+
+export async function getList(urlEnd, htmlElements) {
+  console.log('создаю спиок по  = ', urlEnd);
+  try {
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/list.php?${urlEnd}`
+    );
+    const list = await response.json();
+    console.log(list.drinks);
+    htmlElements.innerHTML = list.drinks.map(
+      item =>
+        `<option value="${Object.values(item)[0]}">${
+          Object.values(item)[0]
+        }</option>`
+    ).join('');
+  } catch (error) {
+    console.log(error.message);
+    htmlElements.innerHTML = '';
+  }
+}
+// массив карточек по имени категории коктейля
+export async function getCardsByСategory(category) {
+  console.log('создаю карточки = ', category);
+  try {
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`
+    );
+    const drink = await response.json();
+    console.log(drink.drinks);
+    const arrayID = drink.drinks.map(item => item.idDrink);
+     console.log(arrayID);
+     getCardsByFavoritDrinks(
+       arrayID,
+       `Searching results by category: ${category}`
+     );
+  } catch (error) {
+    console.log(error.message);
+    createMarkUpCards([], { add: false, h1Change: '' });
+  }
+}
+// массив карточек по стакану
+export async function getCardsByGlass(glass) {
+  console.log('создаю карточки = ', glass);
+  try {
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${glass}`
+    );
+    const drink = await response.json();
+    console.log(drink.drinks);
+    const arrayID = drink.drinks.map(item => item.idDrink);
+    console.log(arrayID);
+    getCardsByFavoritDrinks(arrayID, `Searching results by glass: ${glass}`);
+  } catch (error) {
+    console.log(error.message);
+    createMarkUpCards([], { add: false, h1Change: '' });
+  }
+}
+// массив карточек по ингридиенту
+export async function getCardsByIngredient(Ingredient) {
+  console.log('создаю карточки = ', Ingredient);
+  try {
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${Ingredient}`
+    );
+    const drink = await response.json();
+    console.log(drink.drinks);
+    const arrayID = drink.drinks.map(item => item.idDrink);
+    console.log(arrayID);
+    getCardsByFavoritDrinks(
+      arrayID,
+      `Searching results by ingredient: ${Ingredient}`
+    );
+  } catch (error) {
+    console.log(error.message);
+    createMarkUpCards([], { add: false, h1Change: '' });
+  }
+}
+// массив карточек по наличию алкголя в коктейле
+export async function getCardsByselectByAlcoholic(Alcoholic) {
+  console.log('создаю карточки = ', Alcoholic);
+  try {
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${Alcoholic}`
+    );
+    const drink = await response.json();
+    console.log(drink.drinks);
+    const arrayID = drink.drinks.map(item => item.idDrink);
+    console.log(arrayID);
+    getCardsByFavoritDrinks(
+      arrayID,
+      `Searching results by alcoholic: ${Alcoholic}`
+    );
+  } catch (error) {
+    console.log(error.message);
+    createMarkUpCards([], { add: false, h1Change: '' });
+  }
+}
