@@ -1,4 +1,4 @@
-const refs = {
+export const refs = {
   btnRef: document.querySelector('[data-menu-button]'),
   menu: document.querySelector('[data-menu]'),
 };

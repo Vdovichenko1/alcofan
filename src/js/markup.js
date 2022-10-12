@@ -92,6 +92,6 @@ function openIngridient(e) {
   getCardsByIngridient(e.currentTarget.dataset.ingridient);
 }
 function showMoreAboutCoctail(e) {
-  document.querySelector('.modal_cocktail').innerHTML =
+  document.querySelector('.modal-coctail').innerHTML =
     e.currentTarget.closest('.card').innerHTML;
 }
