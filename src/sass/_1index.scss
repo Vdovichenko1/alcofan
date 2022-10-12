@@ -140,7 +140,7 @@
   }
 
   &__btn {
-    height: 36px;
+    height: 38px;
     border: none;
     border-right: 2px solid $font-secondary-color;
     border-color: $font-secondary-color;
@@ -458,4 +458,10 @@ footer {
 .show {
   transform: translateX(0px);
   opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+      width: 320px;
+    }
 }
