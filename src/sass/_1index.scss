@@ -479,3 +479,10 @@ footer {
   transform: translateX(0px);
   opacity: 1;
 }
+
+@media screen and (max-width: 767px) {
+  .container {
+      width: 320px;
+    }
+}
+
