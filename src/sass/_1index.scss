@@ -448,3 +448,14 @@ footer {
   text-align: center;
   color: $background-light;
 }
+
+.card {
+  transform: translateX(-150px);
+  opacity: 0;
+  transition: 1000ms;
+}
+
+.show {
+  transform: translateX(0px);
+  opacity: 1;
+}
