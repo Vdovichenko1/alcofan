@@ -17,10 +17,11 @@
   position: relative;
   width: 38px;
   height: 38px;
-  margin-right: 43px;
+  margin-right: 0px;
   color: $font-secondary-color;
   background-color: inherit;
   &__icon {
+    width: 38px;
     @media screen and (max-width: 1279px) {
       position: absolute;
       top: -9;
@@ -40,6 +41,9 @@
     @media screen and (min-width: 1280px) {
       display: none;
     }
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 43px;
   }
 }
 
@@ -127,7 +131,7 @@
     padding-left: 45px;
     display: flex;
     border: 2px solid $font-secondary-color;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     background-color: transparent;
 
     width: 288px;
@@ -140,13 +144,16 @@
   }
 
   &__btn {
-    height: 38px;
+    display: flex;
+    align-items: center;
+    height: 36px;
     border: none;
     border-right: 2px solid $font-secondary-color;
+
     border-color: $font-secondary-color;
     background-color: transparent;
     position: absolute;
-    top: 25px;
+    top: 1px;
     left: 38px;
     transform: translateX(-106%);
     color: $font-secondary-color;
@@ -158,6 +165,19 @@
 
   @media screen and (min-width: 768px) {
     display: block;
+  }
+
+  & > label {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  &__select {
+    background-color: transparent;
+    color: $font-letterpick;
+    border: 2px solid $font-secondary-color;
+    border-radius: 0px 5px 5px 0px;
   }
 }
 
@@ -465,3 +485,4 @@ footer {
       width: 320px;
     }
 }
+
