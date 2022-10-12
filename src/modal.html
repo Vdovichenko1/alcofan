@@ -1,3 +1,4 @@
+<!-- modal coctails  -->
 <div class="modal" data-modal>
   <button class="modal__close" type="button" data-modal-close>
     <svg width="32" height="32">
@@ -9,21 +10,21 @@
   <div class="ingrids">
     <h3 class="ingrids__title">Ingredients</h3>
     <p class="ingrids__mesure">Per cocktail</p>
-    <ul class="ingrids__list">
-      <li class="ingrids__item">
-        <a class="ingrids__link link" href="#">Ice</a>
+    <ul class="modal__list">
+      <li class="modal__item">
+        <a class="modal__link link" href="#">Ice</a>
       </li>
-      <li class="ingrids__item">
-        <a class="ingrids__link link" href="#">1 ounce gin</a>
+      <li class="modal__item">
+        <a class="modal__link link" href="#">1 ounce gin</a>
       </li>
-      <li class="ingrids__item">
-        <a class="ingrids__link link" href="#">1 ounce Campari</a>
+      <li class="modal__item">
+        <a class="modal__link link" href="#">1 ounce Campari</a>
       </li>
-      <li class="ingrids__item">
-        <a class="ingrids__link link" href="#">1 ounce sweet vermouth</a>
+      <li class="modal__item">
+        <a class="modal__link link" href="#">1 ounce sweet vermouth</a>
       </li>
-      <li class="ingrids__item">
-        <a class="ingrids__link link" href="#">Garnish: orange peel</a>
+      <li class="modal__item">
+        <a class="modal__link link" href="#">Garnish: orange peel</a>
       </li>
     </ul>
   </div>
@@ -38,6 +39,32 @@
   </div>
 </div>
 
+<!-- modal ingrids  -->
+
+<div class="modal modal--ingrid active" data-modal-ingrids>
+  <button class="modal__close" type="button" data-modal-close>
+    <svg width="32" height="32">
+      <use href="./img/symbol-defs.svg#icon-close"></use>
+    </svg>
+  </button>
+  <h2 class="modal__title">Campari</h2>
+  <h3 class="ingrids__title ingrids__title--ingrid">Liqueur</h3>
+  <p class="modal__text modal__text--ingrid">
+    Campari is an Italian alcoholic liqueur, considered an apéritif (20.5%, 21%,
+    24%, 25%, or 28.5% ABV, depending on the country in which it is sold),
+    obtained from the infusion of herbs and fruit (including chinotto and
+    cascarilla) in alcohol and water. It is a bitters, characterised by its dark
+    red colour.
+  </p>
+  <ul class="modal__list modal__list--ingrid">
+    <li class="modal__item"><p>Type: Bitters</p></li>
+    <li class="modal__item"><p>Country of origin: Italy</p></li>
+    <li class="modal__item"><p>Alcohol by volume: 20.5–28.5%</p></li>
+    <li class="modal__item"><p>Flavour: Bitter, spicy and sweet</p></li>
+  </ul>
+
+  <button class="btn btn--remove" type="button">Remove from favorite</button>
+</div>
 <!-- overlay  -->
 
 <div class="overlay js-overlay-modal" data-overlay></div>
