@@ -147,7 +147,53 @@ export default class FetchService {
     console.log(ingAr);
     return ingAr; //массив ингридиентов
   }
+
+  async fetchByCategory(category) { 
+    const url = `json/v1/1/filter.php?c=${category}`;
+    const drink = await axios.get(url);
+    console.log('CATEGORY', drink.data.drinks);
+    const arrayID = drink.data.drinks.map(item => item.idDrink);
+    console.log(arrayID);
+    return arrayID;
+  }
+
+  async fetchByGlass(glass) { 
+    const url = `json/v1/1/filter.php?g=${glass}`;
+    const drink = await axios.get(url);
+    console.log('GLASS',drink);
+    const arrayID = drink.data.drinks.map(item => item.idDrink);
+    return arrayID;
+  }
+
+  async fetchByIngr(ing) { 
+    const url = `json/v1/1/filter.php?i=${ing}`;
+    const drink = await axios.get(url);
+    console.log(drink.data.drinks);
+    const arrayID = drink.data.drinks.map(item => item.idDrink);
+    console.log(arrayID);
+    return arrayID;
+  }
+
+  async fetchByAlcohol(ing) { 
+    const url = `json/v1/1/filter.php?a=${ing}`;
+    const drink = await axios.get(url);
+    console.log(drink.data.drinks);
+    const arrayID = drink.data.drinks.map(item => item.idDrink);
+    console.log(arrayID);
+    return arrayID;
+  }
+
+  async fetchList(i) {
+    const url = `json/v1/1/list.php?${i}`;
+    const response = await axios.get(url);
+    return response.data.drinks;
+  }
+
+
+
 }
+
+
 
 // const fetchService = new FetchService();
 // document.body.innerHTML = '';
