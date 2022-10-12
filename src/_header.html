@@ -2,7 +2,13 @@
   <div class="container header__container">
     <a class="logo link" href="./index.html">
       <span class="logo__text">Coctails</span>
-      <img class="logo__icon" src="./img/logo.png" alt="Logo" />
+      <img
+        class="logo__icon"
+        src="./img/logo.png"
+        alt="Logo"
+        width="38"
+        height="38"
+      />
       <!-- <svg class="logo__icon" width="38" height="38">
         <use href="./img/icons.svg#cocktail-svgrepo-com"></use>
       </svg> -->
@@ -23,17 +29,18 @@
 
     <form class="search-form" id="search-form">
       <label>
-        <select name="select_type_of_search">
-          <option value="byCoctail">by Cocktail</option>
-          <option value="byIngridient">by Ingridient</option>
-        </select>
         <input
           class="search-form__input"
           type="text"
           name="searchQuery"
           autocomplete="off"
           placeholder="Search |"
-      /></label>
+        />
+        <select class="search-form__select" name="select_type_of_search">
+          <option value="byCoctail">by Cocktail</option>
+          <option value="byIngridient">by Ingridient</option>
+        </select>
+      </label>
       <button class="search-form__btn" type="submit">
         <svg class="search__icon" width="20" height="20">
           <use href="./img/symbol-defs.svg#icon-bx_search"></use>
