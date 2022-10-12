@@ -1,0 +1,144 @@
+.modal {
+  position: relative;
+  padding: 28px 28px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 288px, 534px;
+  opacity: 0;
+  visibility: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  //   width: 80%;
+
+  z-index: 4;
+  background-color: inherit;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: $min768) {
+    width: 822px;
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 10;
+  right: 10;
+  background-color: inherit;
+  border-radius: 50%;
+  border-color: transparent;
+
+  z-index: 5;
+  cursor: pointer;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media screen and (max-width: $min768) {
+    top: 16;
+    right: 16;
+  }
+  &:hover,
+  &:focus {
+    fill: $btn-primary;
+    transform: scale(0.9);
+  }
+}
+
+.modal__title {
+  margin-top: 12px;
+  margin-bottom: 28px;
+  text-align: left;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1.19;
+
+  @media screen and (min-width: $min768) {
+    margin-bottom: 28px;
+  }
+}
+
+.modal__img {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  margin-left: -28px;
+  margin-top: -28px;
+
+  background-color: grey;
+}
+
+.ingrids__title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.ingrids__mesure {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.ingrids__list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.ingrids__item {
+  &::marker {
+    content: '✶ ';
+  }
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: color 250ms ease;
+
+  &:hover {
+    color: $font-secondary-color;
+  }
+}
+
+.ingrids__link {
+  color: inherit;
+  cursor: pointer;
+}
+
+.modal__textwrap {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  margin: 0;
+  margin-top: 28px;
+}
+
+.modal__title--secondary {
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.modal__text {
+  margin-top: 0;
+  margin-bottom: 40px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.75;
+
+  @media screen and (min-width: $min768) {
+    max-width: 615px;
+  }
+}
