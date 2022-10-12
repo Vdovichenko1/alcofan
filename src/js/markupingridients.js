@@ -93,6 +93,9 @@ function newChooseIngridient(e) {
   console.log('favoritDrinks', favoritDrinks);
 }
 function showMoreAboutIngridient(e) {
-  document.querySelector('.modal-ingridient').innerHTML =
-    e.currentTarget.closest('.card-ingridient').innerHTML;
+  const modalWindow = document.querySelector('.modal-ingridient');
+ modalWindow.innerHTML = e.currentTarget.closest('.card-ingridient').innerHTML;
+  modalWindow
+    .querySelector('.btn-add.ingridient')
+    .addEventListener('click', newChooseIngridient);
 }
