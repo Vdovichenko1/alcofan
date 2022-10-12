@@ -44,6 +44,14 @@
     margin-right: 0;
   }
 
+  &--more {
+    min-width: 248px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    height: 48px;
+  }
+
   &--lm {
     margin-right: 20px;
 
@@ -63,7 +71,7 @@
   }
 }
 
-.btn-add{
+.btn-add {
   background-image: url(../img/heart.png);
   background-repeat: no-repeat;
   background-position: 80%;
