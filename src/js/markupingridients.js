@@ -119,7 +119,6 @@ function newChooseIngridient(e) {
 }
 function showMoreAboutIngridient(e) {
   const modalWindow = document.querySelector('.modal.modal--ingrid');
-
   modalWindow.innerHTML = `<button class="modalclose" type="button" data-modal-close-ingrid>
                       <svg width="32" height="32">
                         <use href="./img/symbol-defs.svg#icon-close"></use>
