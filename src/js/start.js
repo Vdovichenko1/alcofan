@@ -22,12 +22,6 @@ export const htmlElements = {
   searchIntup: document.querySelector('.search-form__input'),
   favoritCoctails: document.querySelector('.dropdown__link.coctails'),
   favoritIngridients: document.querySelector('.dropdown__link.ingridients'),
-  favoritCoctails2: document.querySelector(
-    '.dropdown__link.dropdown__link-coctails'
-  ),
-  favoritIngridients2: document.querySelector(
-    '.dropdown__link.dropdown__link-ingridients'
-  ),
   selectByCategory: document.querySelector('[name="select_by_category"]'),
   selectByGlass: document.querySelector('[name="select_by_glass"]'),
   selectByIngredient: document.querySelector('[name="select_by_ingredient"]'),
@@ -110,24 +104,18 @@ htmlElements.search.addEventListener('submit', e => {
 });
 
 htmlElements.favoritCoctails.addEventListener('click', handlerFavoritCoctails);
-htmlElements.favoritCoctails2.addEventListener('click', e => {
-  refs.menu.classList.toggle('is-open');
-  handlerFavoritCoctails();
-});
+
 htmlElements.favoritIngridients.addEventListener(
   'click',
   handlerFavoritIngridients
 );
-htmlElements.favoritIngridients2.addEventListener('click', e => {
-  refs.menu.classList.toggle('is-open');
-  handlerFavoritIngridients();
-});
 
-function handlerFavoritIngridients() {
+
+export function handlerFavoritIngridients() {
   document.querySelector('.section.hero').style.display = 'none';
   getCardsByFavoritIngridient(Object.keys(favoriteIngredients));
 }
-function handlerFavoritCoctails() {
+export function handlerFavoritCoctails() {
   document.querySelector('.section.hero').style.display = 'none';
   getCardsByFavoritDrinks(Object.keys(favoritDrinks));
 }

@@ -71,10 +71,10 @@ export const observerForAmination = new IntersectionObserver(
   },
   { rootMargin: '-100px' }
 );
-
-export const observerForLoad = new IntersectionObserver(entries => {
-  if (!entries[0].isIntersecting) return;
-  console.log('нужні новіе карточки', getNumberElement());
-  getCards(entries.length);
-  observerForLoad.unobserve(entries[0].target);
-});
+document.querySelector('.btn.btn--more').addEventListener('click', e =>  getCards(getNumberElement()))
+// export const observerForLoad = new IntersectionObserver(entries => {
+//   if (!entries[0].isIntersecting) return;
+//   console.log('нужні новіе карточки', getNumberElement());
+//   getCards(entries.length);
+//   observerForLoad.unobserve(entries[0].target);
+// });
