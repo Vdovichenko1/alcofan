@@ -92,8 +92,8 @@ export default class FetchService {
       console.log("Sorry we didn't find any Ingredients");
       return;
     }
-    console.log(response.data.ingredients[0]);
-    return response.data.ingredients[0];
+    console.log(response.data.ingredients);
+    return response.data.ingredients;
   }
 
   /*поиск по ID ингредиента, вернет объект описания ингредиента */

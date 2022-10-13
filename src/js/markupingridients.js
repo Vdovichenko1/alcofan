@@ -4,6 +4,7 @@ import { observerForAmination, observerForLoad } from './initpage';
 import { saveLocalStorage } from './localStorage';
 import { KEY_LOCAL_STORAGE_FAVORITE_DRINKS } from './initpage';
 import { KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS } from './initpage';
+import { onModalOpenIngrids } from './modal';
 
 export function createMarkUpIngridients(arrOfIngridients, param) {
   console.log('hello', arrOfIngridients);
@@ -50,18 +51,38 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
   }
   console.log('param.display', param.display);
   if (param.display === 'modal') {
-    console.log(
-      'document.querySelector',
-      document.querySelector('.modal.modal--ingrid')
-    );
-    document.querySelector('.modal.modal--ingrid').innerHTML =
-      htmlStrings.join('');
+     const modalIngdidient = document.querySelector('.modal.modal--ingrid');
+    modalIngdidient
+      .innerHTML = `<button class="modalclose" type="button" data-modal-close-ingrid>
+                      <svg width="32" height="32">
+                        <use href="./img/symbol-defs.svg#icon-close"></use>
+                      </svg>
+                    </button>`;
+    modalIngdidient.insertAdjacentHTML('beforeend', htmlStrings.join(''));
 
-    ////  теперь тут НАДО ОТКРІТЬ МОДАЛКУ ИНГРИДИЕНТОВ
-    //// поднять какую либо функцию типа onCloseMODALWINDOW
+    if (
+      modalIngdidient.querySelector('.btn-add.ingridient').textContent ===
+      'Add to'
+    )
+      modalIngdidient.querySelector('.btn-add.ingridient').textContent =
+        'Add to favorite';
+    if (
+      modalIngdidient.querySelector('.btn-add.ingridient').textContent ===
+      'Remove'
+    )
+      modalIngdidient.querySelector('.btn-add.ingridient').textContent =
+        'Remove from favorite';
+    modalIngdidient
+      .querySelector('.btn-add.ingridient')
+      .addEventListener('click', newChooseIngridient);
+
+    onModalOpenIngrids();
   } else if (param.display === 'list') {
     h1.innerHTML = param.h1Change;
     htmlElements.listOfDrinks.innerHTML = htmlStrings.join('');
+    document.querySelectorAll('.btn.btn--lm').forEach(item => {
+      item.addEventListener('click', showMoreAboutIngridient);
+    });
   }
 
   //   document
@@ -73,7 +94,8 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
   document.querySelectorAll('.btn-add.ingridient').forEach(item => {
     item.addEventListener('click', newChooseIngridient);
   });
-  document.querySelectorAll('.btn.btn--lm').forEach(item => {
+
+  document.querySelectorAll('.card-ingridient  li').forEach(item => {
     item.addEventListener('click', showMoreAboutIngridient);
   });
 }
@@ -97,8 +119,26 @@ function newChooseIngridient(e) {
 }
 function showMoreAboutIngridient(e) {
   const modalWindow = document.querySelector('.modal.modal--ingrid');
-  modalWindow.innerHTML = e.currentTarget.closest('.card-ingridient').innerHTML;
+  modalWindow.innerHTML = `<button class="modalclose" type="button" data-modal-close-ingrid>
+                      <svg width="32" height="32">
+                        <use href="./img/symbol-defs.svg#icon-close"></use>
+                      </svg>
+                    </button>`;
+  modalWindow.insertAdjacentHTML(
+    'beforeend',
+    e.currentTarget.closest('.card-ingridient').innerHTML
+  );
+   
+  if (modalWindow.querySelector('.btn-add.ingridient').textContent === 'Add to')
+    modalWindow.querySelector('.btn-add.ingridient').textContent.textContent =
+      'Add to favorite';
+  if (modalWindow.querySelector('.btn-add.ingridient').textContent === 'Remove')
+    modalWindow.querySelector('.btn-add.ingridient').textContent.textContent =
+      'Remove from favorite';
   modalWindow
     .querySelector('.btn-add.ingridient')
     .addEventListener('click', newChooseIngridient);
+
+  
+    onModalOpenIngrids();
 }
