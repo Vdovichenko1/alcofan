@@ -68,15 +68,6 @@ htmlElements.leter.addEventListener('click', e =>
 htmlElements.select.addEventListener('change', e =>
   getCardsFirstLetter(e.target.value)
 );
-// document.addEventListener('keydown', e => {
-//   if (
-//     'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.toLowerCase().includes(e.key) ||
-//     'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.includes(e.key) ||
-//     '1234567890'.includes(e.key)
-//   )
-//     getCardsFirstLetter(e.key);
-//   return;
-// });
 getList('c=list', htmlElements.selectByCategory);
 getList('g=list', htmlElements.selectByGlass);
 getList('i=list', htmlElements.selectByIngredient);
