@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-.modal {
+// .modal {
   // max-height: 600px;
   // display: grid;
   // grid-template-columns: 288px 1fr 32px;
@@ -166,7 +166,7 @@
   //     color: $font-secondary-color;
   //   }
   // }
-}
+// }
 // .modal .modal__title-Instructions {
 //   margin-top: 0;
 //   margin-bottom: 24px;
@@ -360,3 +360,13 @@
 //   margin-top: 0;
 //   margin-bottom: 8px;
 // }
+.modal__close-ingred {
+        cursor: pointer;
+        background-color: #0000;
+        border-color: #0000;
+        border-radius: 50%;
+        transition: all .25s cubic-bezier(.4, 0, .2, 1);
+        position: absolute;
+        top: 10px;
+        right: 10px;
+}

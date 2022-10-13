@@ -6,6 +6,10 @@ import { KEY_LOCAL_STORAGE_FAVORITE_DRINKS } from './initpage';
 import { KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS } from './initpage';
 import { onModalOpenIngrids } from './modal';
 
+const modalCloseIngred = document.querySelector('.modal__close-icon-ingred');
+modalCloseIngred.remove();
+modalCloseIngred.style.display = '';
+
 export function createMarkUpIngridients(arrOfIngridients, param) {
   console.log('hello', arrOfIngridients);
   let htmlStrings = [];
@@ -51,12 +55,9 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
   }
   console.log('param.display', param.display);
   if (param.display === 'modal') {
-     const modalIngdidient = document.querySelector('.modal.modal--ingrid');
-    modalIngdidient
-      .innerHTML = `<button class="modalclose" type="button" data-modal-close-ingrid>
-                      <svg width="32" height="32">
-                        <use href="./img/symbol-defs.svg#icon-close"></use>
-                      </svg>
+    const modalIngdidient = document.querySelector('.modal.modal--ingrid');
+    modalIngdidient.innerHTML = `<button class="modal__close-ingred" type="button" data-modal-close-ingrid>
+                      ${modalCloseIngred.outerHTML}
                     </button>`;
     modalIngdidient.insertAdjacentHTML('beforeend', htmlStrings.join(''));
 
@@ -128,7 +129,7 @@ function showMoreAboutIngridient(e) {
     'beforeend',
     e.currentTarget.closest('.card-ingridient').innerHTML
   );
-   
+
   if (modalWindow.querySelector('.btn-add.ingridient').textContent === 'Add to')
     modalWindow.querySelector('.btn-add.ingridient').textContent.textContent =
       'Add to favorite';
@@ -139,6 +140,5 @@ function showMoreAboutIngridient(e) {
     .querySelector('.btn-add.ingridient')
     .addEventListener('click', newChooseIngridient);
 
-  
-    onModalOpenIngrids();
+  onModalOpenIngrids();
 }
