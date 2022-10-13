@@ -119,8 +119,7 @@ function showMoreAboutCoctail(e) {
   });
 
   if (btnAdd.textContent === 'Add to') btnAdd.textContent = 'Add to favorite';
-  if (btnAdd.textContent === 'Remove') console.log(btnAdd);
-  btnAdd.textContent = 'Remove from favorite';
+  if (btnAdd.textContent === 'Remove') btnAdd.textContent = 'Remove from favorite';
   modalWindow
     .querySelector('.card__ingridients')
     .insertAdjacentHTML(

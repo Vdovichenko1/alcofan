@@ -28,7 +28,7 @@ export const htmlElements = {
   selectByAlcoholic: document.querySelector('[name="select_by_alcoholic"]'),
 };
 
-console.log(htmlElements);
+console.log('htmlElements ====' , htmlElements);
 
 initPage();
 closeOpenFilter();
@@ -84,7 +84,10 @@ getList('a=list', htmlElements.selectByAlcoholic);
 
 htmlElements.search.addEventListener('submit', e => {
   e.preventDefault();
-  console.log('htmlElements.searchIntup.value', htmlElements.searchIntup.value);
+  console.log(
+    'тип поиска ',
+    document.querySelector('[name="select_type_of_search"]').value
+  );
   if (htmlElements.searchIntup.value === '') return;
 
   if (
