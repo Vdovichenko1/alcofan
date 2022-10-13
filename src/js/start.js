@@ -37,22 +37,22 @@ closeOpenFilter();
 function closeOpenFilter() {
   console.log(htmlElements.addFilters.dataset.state);
   if (htmlElements.addFilters.dataset.state === 'close') {
-    htmlElements.addFilters.innerHTML = `Use more filters
+    htmlElements.addFilters.innerHTML = `Hide more filters
         <img
           class="more__filters__icon"
           select
-          src="./img/f+.png"
+          src="./img/f-.png"
           alt="icon"
           style="width: 30px"
         />`;
     document.querySelector('.wrapper__filter').style.display = 'block';
     htmlElements.addFilters.dataset.state = 'open';
   } else if (htmlElements.addFilters.dataset.state === 'open') {
-    htmlElements.addFilters.innerHTML = `Hide more filters
+    htmlElements.addFilters.innerHTML = `Use more filters
         <img
           class="more__filters__icon"
           select
-          src="./img/f-.png"
+          src="./img/f+.png"
           alt="icon"
           style="width: 30px"
         />`;

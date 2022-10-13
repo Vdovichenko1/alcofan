@@ -28,7 +28,7 @@ export async function getCardsFirstLetter(key) {
     const response = await fetchService.byLetterCoctail(key);
     createMarkUpCards(response, {
       add: false,
-      h1Change: 'Searching results',
+      h1Change: `Searching results by first symbol ${key}`,
     });
   } catch (error) {
     console.log(error.message);
@@ -45,7 +45,7 @@ export async function getCardsByName(key) {
     const response = await fetchService.byNameCoctail(key);
     createMarkUpCards(response, {
       add: false,
-      h1Change: 'Searching results',
+      h1Change: `Searching results: cocktails by string ${key}`,
     });
   } catch (error) {
     console.log(error.message);
@@ -53,13 +53,13 @@ export async function getCardsByName(key) {
   }
 }
 // массив карточек: любиміе коктейли пользователя
-export async function getCardsByFavoritDrinks(arrayDrinks) {
+export async function getCardsByFavoritDrinks(arrayDrinks, h1 = 'Favorite cocktails') {
   console.log('arrayDrinks drinks = ', arrayDrinks);
   try {
-    const coctails = await fetchService.favoriteCoctailsById(arrayDrinks);
+   const coctails = await fetchService.favoriteCoctailsById(arrayDrinks);
     createMarkUpCards(coctails, {
       add: false,
-      h1Change: 'Favorite cocktails',
+      h1Change: h1,
     });
   } catch (error) {
     console.log(error.message);
@@ -72,8 +72,8 @@ export async function getCardsByIngridient(key) {
   try {
     const response = await fetchService.byIngrName(key);
     createMarkUpIngridients(response, {
-     display: 'modal',
-    h1Change: '',
+      display: 'modal',
+      h1Change: `Searching results: ingridients by string ${key}`,
     });
   } catch (error) {
     console.log(error.message);
@@ -101,11 +101,14 @@ export async function getList(urlEnd, htmlElements) {
   console.log('создаю спиок по  = ', urlEnd);
   try {
     const list = await fetchService.fetchList(urlEnd);
-    console.log(list);
-    htmlElements.innerHTML = list.map(
-      item =>
-        `<option value="${Object.values(item)[0]}">${Object.values(item)[0]}</option>`
-    ).join('');
+    htmlElements.innerHTML = list
+      .map(
+        item =>
+          `<option value="${Object.values(item)[0]}">${
+            Object.values(item)[0]
+          }</option>`
+      )
+      .join('');
   } catch (error) {
     console.log(error.message);
     htmlElements.innerHTML = '';
@@ -116,11 +119,10 @@ export async function getCardsByСategory(category) {
   console.log('создаю карточки = ', category);
   try {
     const response = await fetchService.fetchByCategory(category);
-    console.log('response', response);
-     getCardsByFavoritDrinks(
+    getCardsByFavoritDrinks(
       response,
-       `Searching results by category: ${category}`
-     );
+      `Searching results by category: ${category}`
+    );
   } catch (error) {
     console.log(error.message);
     createMarkUpCards([], { add: false, h1Change: '' });
