@@ -32,4 +32,5 @@ function onOpenBurger() {
   refs.menu.classList.toggle('is-open');
   refs.switch.classList.toggle('switch-burger');
   refs.search.classList.toggle('search-burger');
+  document.body.classList.toggle('fixed');
 }
