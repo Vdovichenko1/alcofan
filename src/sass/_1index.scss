@@ -121,11 +121,13 @@
 // search form
 
 .search-form {
-  display: none;
   position: relative;
   @media screen and (min-width: 1280px) {
     margin-right: 172px;
   }
+    // @media screen and (max-width: 767px) {
+    //   display: block;
+    // }
 
   &__input {
     padding-left: 45px;
