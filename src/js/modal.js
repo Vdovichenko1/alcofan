@@ -5,7 +5,10 @@ const refs = {
   learnMoreBtn: document.querySelectorAll('.btn--lm'),
 };
 
+let scroll = 0;
+
 export function onModalOpen() {
+  scroll = scrollY;
   refs.btnModalClose = document.querySelector('.modal .modal__close');
   refs.btnIngridient = document.querySelectorAll('.card__ingridients li');
   refs.overlay.classList.add('active');
@@ -16,6 +19,9 @@ export function onModalOpen() {
     li.addEventListener('click', onModalOpenIngrids);
   });
   document.body.classList.add('fixed');
+
+  document.body.dataset.scrollY = scroll;
+  document.body.style.top = `-${document.body.dataset.scrollY}px`;
 }
 
 function onCloseButtonClick() {
@@ -23,7 +29,8 @@ function onCloseButtonClick() {
   refs.modal.classList.add('hidden');
   refs.modal.classList.remove('active');
   document.body.classList.remove('fixed');
-  //refs.btnCloseModal.removeEventListener('click', onCloseButtonClick);
+  window.scrollTo(0, scroll);
+  refs.btnCloseModal.removeEventListener('click', onCloseButtonClick);
 }
 
 export function onModalOpenIngrids() {
@@ -39,4 +46,12 @@ function onCloseButtonIgridClick() {
   refs.modalIngrid.classList.add('hidden');
   refs.modalIngrid.classList.remove('activeF');
   //refs.btnCloseModal.removeEventListener('click', onCloseButtonClick);
+}
+
+function getBodyScrollTop() {
+  return (
+    window.pageYOffset ||
+    (document.documentElement && document.documentElement.ScrollTop) ||
+    (document.body && document.body.scrollTop)
+  );
 }
