@@ -8,6 +8,12 @@ import { onModalOpenIngrids } from './modal';
 import { btnIcon } from './markup';
 
 const modalCloseIngred = document.querySelector('.modal__close-icon-ingred');
+try {
+  modalCloseIngred.remove();
+  modalCloseIngred.style.display = '';
+} catch (error) {
+  console ("что то пошло не так")
+}
 modalCloseIngred.remove();
 modalCloseIngred.style.display = '';
 
@@ -16,7 +22,9 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
   let htmlStrings = [];
   const h1 = document.querySelector('h1.section__title');
   if (arrOfIngridients.length === 0) {
-    htmlElements.listOfDrinks.innerHTML = `<div class="card-error"> <span class="card-error__text">Sorry, we didn't find any cocktail for you</span> <div class="card-error__img"></div></div>`;
+    htmlElements.listOfDrinks.innerHTML = `<div class="card-error">
+    <span class="card-error__text">Sorry, we didn't find any cocktail for you</span>
+    <div class="card-error__img"></div></div>`;
     return;
   } else {
     htmlStrings = arrOfIngridients.map(el => {
@@ -31,7 +39,9 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
       }
 
       const myStr = `<div class="card-ingridient">
-      <h3 class="card-ingridient__head">${el.strIngredient}</h3><p class="card-ingridient__type">${el.strType}</p><p class="card-ingridient__description">${el.strDescription}</p>
+      <h3 class="card-ingridient__head">${el.strIngredient}</h3>
+      <p class="card-ingridient__type">${el.strType}</p>
+      <p class="card-ingridient__description">${el.strDescription}</p>
           <ul>
             <li>Type: Unknow</li>
             <li>Country of origin: Unknow</li>
@@ -58,6 +68,7 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
                       ${modalCloseIngred.outerHTML}
                     </button>`;
     modalIngdidient.insertAdjacentHTML('beforeend', htmlStrings.join(''));
+   
 
     if (
       modalIngdidient.querySelector('.btn-add.ingridient').textContent ===
@@ -71,6 +82,7 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
     )
       modalIngdidient.querySelector('.btn-add.ingridient').textContent =
         'Remove from favorite';
+    
     modalIngdidient
       .querySelector('.btn-add.ingridient')
       .addEventListener('click', newChooseIngridient);
@@ -81,6 +93,9 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
     htmlElements.listOfDrinks.innerHTML = htmlStrings.join('');
     document.querySelectorAll('.btn.btn--lm').forEach(item => {
       item.addEventListener('click', showMoreAboutIngridient);
+      if (document.querySelector('.btn.btn--more')) {
+        document.querySelector('.btn.btn--more').remove();
+      }
     });
   }
 
@@ -94,9 +109,9 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
     item.addEventListener('click', newChooseIngridient);
   });
 
-  document.querySelectorAll('.card-ingridient  li').forEach(item => {
-    item.addEventListener('click', showMoreAboutIngridient);
-  });
+  // document.querySelectorAll('.card-ingridient  li').forEach(item => {
+  //   item.addEventListener('click', showMoreAboutIngridient);
+  // });
 }
 
 function newChooseIngridient(e) {
@@ -123,9 +138,9 @@ function showMoreAboutIngridient(e) {
                     </button>`;
   modalWindow.insertAdjacentHTML(
     'beforeend',
-    e.currentTarget.closest('.card-ingridient').innerHTML
+    e.currentTarget.closest('.card-ingridient').outerHTML
   );
-
+ 
   if (modalWindow.querySelector('.btn-add.ingridient').textContent === 'Add to')
     modalWindow.querySelector('.btn-add.ingridient').textContent.textContent =
       'Add to favorite';
