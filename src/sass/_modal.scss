@@ -1,15 +1,25 @@
-.hidden{display: none;}
+.hidden {
+  display: none;
+}
+
+.fixed {
+  overflow: hidden;
+}
+.modal .btn.btn--lm {
+  display: none;
+}
 .modal {
-  max-height: 600px;
-  display: grid;
+  display: none;
   grid-template-columns: 288px 1fr 32px;
   grid-template-rows: repeat(7, auto);
   position: relative;
+  padding: 28px;
 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 320px;
+  height: auto;
 
   z-index: 4;
   background-color: inherit;
@@ -20,16 +30,21 @@
 
   @media screen and (min-width: $min768) {
     width: 822px;
-    &--ingrid {
+  }
+
+  &.modal--ingrid {
+    grid-template-columns: 1fr;
+    @media screen and (min-width: $min768) {
       width: 715px;
     }
   }
 
-  &__close {
+  & .modal__close,
+  .modalclose {
     position: absolute;
     top: 10;
     right: 10;
-    background-color: #888;
+    background-color: transparent;
     border-radius: 50%;
     border-color: transparent;
 
@@ -46,10 +61,28 @@
       transform: scale(0.9);
     }
   }
+  & .card__img {
+    grid-area: 4;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 22px;
 
-  &__title {
+    background-color: grey;
+
+    @media screen and (min-width: $min768) {
+      grid-area: 1 / 1 / 5 / 2;
+      margin-left: -28px;
+      margin-top: -28px;
+    }
+  }
+
+  &.card-ingridient {
+    max-width: 100%;
+  }
+  & .card__title,
+  .card-ingridient__head {
     margin-top: 12px;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
     text-align: left;
 
     font-family: 'Roboto', sans-serif;
@@ -59,167 +92,169 @@
 
     @media screen and (min-width: $min768) {
       margin-bottom: 28px;
+      grid-area: 1 / 2 / 2/ 3;
+    }
+  }
+  & .ingridients__title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 8px;
+
+    @media screen and (min-width: $min768) {
+      grid-area: 2 / 2 / 3/ 3;
     }
   }
 
-  &__img {
-    grid-column-start: 1;
-    grid-row-start: 1;
-    grid-row-end: 3;
-    margin-left: -28px;
-    margin-top: -28px;
-
-    background-color: grey;
-  }
-
-  &__textwrap {
-    grid-column-start: 1;
-    grid-column-end: 3;
-
-    margin: 0;
-    margin-top: 28px;
-  }
-
-  &__title--secondary {
+  & .card-ingridient__type {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
     margin-top: 0;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: $min768) {
+      grid-area: 2 / 2 / 3/ 3;
+      max-width: 715px;
+      margin-bottom: 68px;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 60px;
+        left: -28px;
+        height: 1px;
+        width: 715px;
+        background-color: $btn-primary;
+        display: block;
+      }
+    }
+  }
+
+  & .ingridients__mesure {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 8px;
+
+    @media screen and (min-width: $min768) {
+      grid-area: 3 / 2 / 4/ 3;
+    }
+  }
+  & .card__ingridients {
+    padding-left: 20px;
+    margin: 0;
+    margin-bottom: 32px;
+
+    & > li {
+      &::marker {
+        content: '✶ ';
+      }
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    @media screen and (min-width: $min768) {
+      grid-area: 4 / 2 / 5/ 3;
+      margin: 0;
+    }
+  }
+  & .modal__title-Instructions {
+    grid-area: 2;
+    margin-top: 0;
+    margin-bottom: 20px;
 
     font-weight: 600;
     font-size: 16px;
     line-height: 1.6;
     text-transform: uppercase;
-  }
 
-  &__text {
+    @media screen and (min-width: $min768) {
+      grid-area: 5 / 1 / 6/ 4;
+      margin-bottom: 24px;
+      margin-top: 28px;
+    }
+  }
+  & .card__instruction {
+    grid-area: 3;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
 
     font-weight: 400;
     font-size: 16px;
     line-height: 1.75;
 
     @media screen and (min-width: $min768) {
+      grid-area: 6 / 1 / 7/ 4;
       max-width: 615px;
       margin-bottom: 40px;
     }
-
-    &--ingrid {
-      margin-bottom: 34px;
-      position: relative;
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: -28px;
-        left: -28px;
-        height: 1px;
-        width: 320px;
-        background-color: $btn-primary;
-        display: block;
-
-        @media screen and (min-width: $min768) {
-          width: 715px;
-        }
-      }
-    }
-
+  }
+  & .card__buttons {
     @media screen and (min-width: $min768) {
-      max-width: 100%;
+      grid-area: 7 / 1 / 8/ 4;
     }
   }
 
-  &__list {
-    padding-left: 20px;
-    margin: 0;
-
-    &--ingrid {
-      margin-bottom: 34px;
-    }
-  }
-
-  &__item {
-    &::marker {
-      content: '✶ ';
-    }
+  & .card-ingridient__description {
+    margin-top: 0;
+    max-width: 685px;
+    max-height: 149px;
+    margin-bottom: 34px;
+    position: relative;
     font-weight: 400;
     font-size: 16px;
-    line-height: 1.6;
-
-    & > p {
-      margin: 0;
-    }
+    line-height: 1.5;
+    color: grey;
+    overflow: hidden;
   }
 
-  &__link {
-    color: inherit;
-    cursor: pointer;
-    transition: color 250ms ease;
-
-    &:hover {
-      color: $font-secondary-color;
+  &.active {
+    display: grid;
+    @media screen and (max-width: 767px) {
+      grid-template-columns: 1fr;
     }
   }
 }
-.modal .modal__title-Instructions {
-  margin-top: 0;
-  margin-bottom: 24px;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.6;
-  text-transform: uppercase;
-}
 
-.modal .btn.btn--lm {
-  display: none;
-}
-.modal {
-  & .modal__close {
-    grid-area: 1 / 3 / 2 / 4;
-  }
-  & .card__img {
-    grid-area: 1 / 1 / 5 / 2;
-    display: block;
-    border-radius: 10px;
-  }
-  & .card__title {
-    padding-top: 28px;
-    grid-area: 1 / 2 / 2/ 3;
-  }
-  & .ingridients__title {
-    grid-area: 2 / 2 / 3/ 3;
-  }
-  & .ingridients__mesure {
-    grid-area: 3 / 2 / 4/ 3;
-  }
-  & .card__ingridients {
-    grid-area: 4 / 2 / 5/ 3;
-  }
-  & .modal__title-Instructions {
-    grid-area: 5 / 1 / 6/ 4;
-  }
-  & .card__instruction {
-    grid-area: 6 / 1 / 7/ 4;
-  }
-  & .card__buttons{grid-area: 7 / 1 / 8/ 4;}
-}
+.modal--ingrid {
+  z-index: 6;
 
-.ingrids__title {
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-  margin-top: 0;
-  margin-bottom: 8px;
+  & ul {
+    padding-left: 20px;
+    margin: 0;
+    margin-bottom: 32px;
 
-  &--ingrid {
-    margin-bottom: 68px;
+    &>li {
+      &::marker {
+        content: '✶ ';
+        color: black;
+      }
+
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #5f6775;
+    }
   }
 }
 
-.ingrids__mesure {
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 1.5;
-  margin-top: 0;
-  margin-bottom: 8px;
+.modal__close-ingred {
+  cursor: pointer;
+  background-color: #0000;
+  border-color: #0000;
+  border-radius: 50%;
+  transition: all .25s cubic-bezier(.4, 0, .2, 1);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.modal__close-ingred:hover {
+  fill: $font-secondary-color
 }

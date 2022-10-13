@@ -121,11 +121,13 @@
 // search form
 
 .search-form {
-  display: none;
   position: relative;
   @media screen and (min-width: 1280px) {
     margin-right: 172px;
   }
+  // @media screen and (max-width: 767px) {
+  //   display: block;
+  // }
 
   &__input {
     padding-left: 45px;
@@ -386,6 +388,14 @@
   @media screen and (min-width: 1280px) {
     width: calc((100% - 64px) / 3);
   }
+
+  &__img {
+    margin-bottom: 48px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 20px;
+    }
+  }
 }
 
 .card__ingridients {
@@ -398,7 +408,7 @@
 
 .card__title {
   text-align: center;
-  margin: 0 0 25px 0;
+  margin: 20px 0 25px 0;
 }
 
 .card__meta {
@@ -409,6 +419,14 @@
   display: flex;
   justify-content: space-around;
   margin-top: auto;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 28px;
+  }
 }
 
 .card-error {
@@ -482,7 +500,6 @@ footer {
 
 @media screen and (max-width: 767px) {
   .container {
-      width: 320px;
-    }
+    width: 320px;
+  }
 }
-

@@ -1,6 +1,11 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;700;900&display=swap');
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #ffffff;
   color: #202025;
@@ -8,6 +13,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.02em;
   margin: 0;
+  fill: #ffffff;
 }
 
 img {
