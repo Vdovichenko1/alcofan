@@ -1,3 +1,6 @@
+const input = document.querySelector('.datalist__input');
+const letters = document.querySelector('#letters');
+
 input.onfocus = function () {
   letters.style.display = 'block';
   input.style.borderRadius = '5px 5px 0 0';
