@@ -4,6 +4,7 @@ export const refs = {
   menu: document.querySelector('[data-menu]'),
   logo: document.querySelector('.logo'),
   switch: document.querySelector('.theme-switch'),
+  search: document.querySelector('.search-form'),
   favoritCock: document.querySelector(
     '.dropdown__link.dropdown__link-coctails'
   ),
@@ -30,4 +31,5 @@ function onOpenBurger() {
   refs.logo.classList.remove('logo-burger');
   refs.menu.classList.toggle('is-open');
   refs.switch.classList.toggle('switch-burger');
+  refs.search.classList.toggle('search-burger');
 }
