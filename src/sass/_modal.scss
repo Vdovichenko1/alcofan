@@ -6,176 +6,6 @@
   overflow: hidden;
 }
 
-.modal {
-  // max-height: 600px;
-  // display: grid;
-  // grid-template-columns: 288px 1fr 32px;
-  // grid-template-rows: repeat(7, auto);
-  // position: relative;
-
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-  // width: 320px;
-
-  // z-index: 4;
-  // background-color: inherit;
-  // box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-  //   0px 2px 1px rgba(0, 0, 0, 0.2);
-  // border-radius: 10px;
-  // transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  // @media screen and (min-width: $min768) {
-  //   width: 822px;
-  //   &--ingrid {
-  //     width: 715px;
-  //   }
-  // }
-
-  // &__close {
-  //   position: absolute;
-  //   top: 10;
-  //   right: 10;
-  //   background-color: #888;
-  //   border-radius: 50%;
-  //   border-color: transparent;
-
-  //   z-index: 5;
-  //   cursor: pointer;
-  //   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  //   @media screen and (max-width: $min768) {
-  //     top: 16;
-  //     right: 16;
-  //   }
-  //   &:hover,
-  //   &:focus {
-  //     fill: $btn-primary;
-  //     transform: scale(0.9);
-  //   }
-  // }
-
-  // &__title {
-  //   margin-top: 12px;
-  //   margin-bottom: 28px;
-  //   text-align: left;
-
-  //   font-family: 'Roboto', sans-serif;
-  //   font-weight: 900;
-  //   font-size: 32px;
-  //   line-height: 1.19;
-
-  //   @media screen and (min-width: $min768) {
-  //     margin-bottom: 28px;
-  //   }
-  // }
-
-  // &__img {
-  //   grid-column-start: 1;
-  //   grid-row-start: 1;
-  //   grid-row-end: 3;
-  //   margin-left: -28px;
-  //   margin-top: -28px;
-
-  //   background-color: grey;
-  // // }
-
-  // &__textwrap {
-  //   grid-column-start: 1;
-  //   grid-column-end: 3;
-
-  //   margin: 0;
-  //   margin-top: 28px;
-  // }
-
-  // &__title--secondary {
-  //   margin-top: 0;
-  //   margin-bottom: 24px;
-
-  //   font-weight: 600;
-  //   font-size: 16px;
-  //   line-height: 1.6;
-  //   text-transform: uppercase;
-  // }
-
-  // &__text {
-  //   margin-top: 0;
-  //   margin-bottom: 20px;
-
-  //   font-weight: 400;
-  //   font-size: 16px;
-  //   line-height: 1.75;
-
-  //   @media screen and (min-width: $min768) {
-  //     max-width: 615px;
-  //     margin-bottom: 40px;
-  //   }
-
-  //   &--ingrid {
-  //     margin-bottom: 34px;
-  //     position: relative;
-
-  //     &::before {
-  //       content: '';
-  //       position: absolute;
-  //       top: -28px;
-  //       left: -28px;
-  //       height: 1px;
-  //       width: 320px;
-  //       background-color: $btn-primary;
-  //       display: block;
-
-  //       @media screen and (min-width: $min768) {
-  //         width: 715px;
-  //       }
-  //     }
-  //   }
-
-  //   @media screen and (min-width: $min768) {
-  //     max-width: 100%;
-  //   }
-  // }
-
-  // &__list {
-  //   padding-left: 20px;
-  //   margin: 0;
-
-  //   &--ingrid {
-  //     margin-bottom: 34px;
-  //   }
-  // }
-
-  // &__item {
-  //   &::marker {
-  //     content: '✶ ';
-  //   }
-  //   font-weight: 400;
-  //   font-size: 16px;
-  //   line-height: 1.6;
-
-  //   & > p {
-  //     margin: 0;
-  //   }
-  // }
-
-  // &__link {
-  //   color: inherit;
-  //   cursor: pointer;
-  //   transition: color 250ms ease;
-
-  //   &:hover {
-  //     color: $font-secondary-color;
-  //   }
-  // }
-}
-// .modal .modal__title-Instructions {
-//   margin-top: 0;
-//   margin-bottom: 24px;
-//   font-weight: 600;
-//   font-size: 16px;
-//   line-height: 1.6;
-//   text-transform: uppercase;
-// }
-
 .modal .btn.btn--lm {
   display: none;
 }
@@ -203,7 +33,15 @@
     width: 822px;
   }
 
-  & .modal__close {
+  &.modal--ingrid {
+    grid-template-columns: 1fr;
+    @media screen and (min-width: $min768) {
+      width: 715px;
+    }
+  }
+
+  & .modal__close,
+  .modalclose {
     position: absolute;
     top: 10;
     right: 10;
@@ -238,7 +76,12 @@
       margin-top: -28px;
     }
   }
-  & .card__title {
+
+  &.card-ingridient {
+    max-width: 100%;
+  }
+  & .card__title,
+  .card-ingridient__head {
     margin-top: 12px;
     margin-bottom: 20px;
     text-align: left;
@@ -265,6 +108,33 @@
       grid-area: 2 / 2 / 3/ 3;
     }
   }
+
+  & .card-ingridient__type {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: $min768) {
+      grid-area: 2 / 2 / 3/ 3;
+      max-width: 715px;
+      margin-bottom: 68px;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 60px;
+        left: -28px;
+        height: 1px;
+        width: 715px;
+        background-color: $btn-primary;
+        display: block;
+      }
+    }
+  }
+
   & .ingridients__mesure {
     font-weight: 300;
     font-size: 14px;
@@ -332,6 +202,19 @@
     }
   }
 
+  & .card-ingridient__description {
+    margin-top: 0;
+    max-width: 685px;
+    max-height: 149px;
+    margin-bottom: 34px;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: grey;
+    overflow: hidden;
+  }
+
   &.active {
     display: grid;
     @media screen and (max-width: 767px) {
@@ -340,23 +223,22 @@
   }
 }
 
-// .ingrids__title {
-//   text-transform: uppercase;
-//   font-weight: 600;
-//   font-size: 16px;
-//   line-height: 1.5;
-//   margin-top: 0;
-//   margin-bottom: 8px;
+.modal--ingrid {
+  z-index: 6;
+  & ul {
+    padding-left: 20px;
+    margin: 0;
+    margin-bottom: 32px;
 
-//   &--ingrid {
-//     margin-bottom: 68px;
-//   }
-// }
-
-// .ingrids__mesure {
-//   font-weight: 300;
-//   font-size: 14px;
-//   line-height: 1.5;
-//   margin-top: 0;
-//   margin-bottom: 8px;
-// }
+    & > li {
+      &::marker {
+        content: '✶ ';
+        color: black;
+      }
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #5f6775;
+    }
+  }
+}

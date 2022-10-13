@@ -19,7 +19,6 @@ export function onModalOpen() {
 }
 
 function onCloseButtonClick() {
-  console.log('try close modaLLLLL');
   refs.overlay.classList.remove('active');
   refs.modal.classList.add('hidden');
   refs.modal.classList.remove('active');
@@ -29,14 +28,14 @@ function onCloseButtonClick() {
 
 export function onModalOpenIngrids() {
   refs.btnModalClose = document.querySelector('[data-modal-close-ingrid]');
-  console.log(' refs.btnModalClose', refs.btnModalClose);
+  refs.overlay.style.zIndex = 5;
   refs.modalIngrid.classList.remove('hidden');
   refs.modalIngrid.classList.add('active');
   refs.btnModalClose.addEventListener('click', onCloseButtonIgridClick);
 }
 
 function onCloseButtonIgridClick() {
-  console.log('try close modaLLLLL');
+  refs.overlay.style.zIndex = 3;
   refs.modalIngrid.classList.add('hidden');
   refs.modalIngrid.classList.remove('active');
   //refs.btnCloseModal.removeEventListener('click', onCloseButtonClick);
