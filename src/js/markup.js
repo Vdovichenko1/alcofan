@@ -11,7 +11,7 @@ const modalBtnClose = document.querySelector('.modal__close-icon');
 modalBtnClose.remove();
 modalBtnClose.style.display = '';
 
-const btnIcon = document.querySelector('.btn__icon');
+export const btnIcon = document.querySelector('.btn__icon');
 btnIcon.remove();
 btnIcon.style.display = '';
 
@@ -46,7 +46,7 @@ export function createMarkUpCards(arrOfDrinks, param) {
           } ${el[`strIngredient${i}`]}</li>`;
         }
       }
-
+      console.log('heart', btnIcon.outerHTML);
       return `<li class="card">
       <img class="card__img" src="${el.strDrinkThumb}"alt="${el.strDrink}" loading="lazy"/>
       <h3 class="card__title">${el.strDrink}</h3>
@@ -93,11 +93,11 @@ function newChooseDrink(e) {
 
   if (id in favoritDrinks) {
     delete favoritDrinks[id];
-    element.textContent = 'Add to';
+    element.innerHTML = `Add to ${btnIcon.outerHTML}`;
     element.className = 'btn-add';
   } else {
     favoritDrinks[id] = true;
-    element.textContent = 'Remove';
+    element.innerHTML = `Remove ${btnIcon.outerHTML}`;
     element.className = 'btn-add  done';
   }
   saveLocalStorage(KEY_LOCAL_STORAGE_FAVORITE_DRINKS, favoritDrinks);

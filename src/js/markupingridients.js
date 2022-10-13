@@ -5,6 +5,7 @@ import { saveLocalStorage } from './localStorage';
 import { KEY_LOCAL_STORAGE_FAVORITE_DRINKS } from './initpage';
 import { KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS } from './initpage';
 import { onModalOpenIngrids } from './modal';
+import { btnIcon } from './markup';
 
 const modalCloseIngred = document.querySelector('.modal__close-icon-ingred');
 modalCloseIngred.remove();
@@ -42,10 +43,7 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
               Learn more
             </button>
             <button class="${myClass}" type="button" data-id="${el.idIngredient}">
-              ${myTextContent}
-              <svg class="btn__icon" width="20" height="20">
-                <use href="#"></use>
-              </svg>
+              ${myTextContent} ${btnIcon.outerHTML}
             </button>
           </div>
         </div>`;
@@ -108,11 +106,11 @@ function newChooseIngridient(e) {
 
   if (id in favoriteIngredients) {
     delete favoriteIngredients[id];
-    element.textContent = 'Add to';
+    element.innerHTML = `Add to ${btnIcon.outerHTML}`;
     element.className = 'btn-add ingridient';
   } else {
     favoriteIngredients[id] = true;
-    element.textContent = 'Remove';
+    element.innerHTML = `Remove ${btnIcon.outerHTML}`;
     element.className = 'btn-add  done';
   }
   saveLocalStorage(KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS, favoriteIngredients);
