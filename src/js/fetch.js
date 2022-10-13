@@ -6,7 +6,7 @@ const fetchService = new FetchService();
 
 //рандомное количество карточек
 export async function getCards(number) {
-  console.log('ЁЁЁЁЁ  создаю карточки', number);
+  // console.log('ЁЁЁЁЁ  создаю карточки', number);
   try {
     const coctails = await fetchService.randomCoctailsOnStart(number);
     createMarkUpCards(coctails, {
@@ -72,8 +72,8 @@ export async function getCardsByIngridient(key) {
   try {
     const response = await fetchService.byIngrName(key);
     createMarkUpIngridients(response, {
-     display: 'modal',
-    h1Change: '',
+      display: 'modal',
+      h1Change: '',
     });
   } catch (error) {
     console.log(error.message);
@@ -98,16 +98,20 @@ export async function getCardsByFavoritIngridient(arrayIngridients) {
 // -------------------------------------------------------------------------------------------------------------
 
 export async function getList(urlEnd, htmlElements) {
-  console.log('создаю спиок по  = ', urlEnd);
+  // console.log('создаю спиок по  = ', urlEnd);
   try {
     const list = await fetchService.fetchList(urlEnd);
-    console.log(list);
-    htmlElements.innerHTML = list.map(
-      item =>
-        `<option value="${Object.values(item)[0]}">${Object.values(item)[0]}</option>`
-    ).join('');
+    // console.log(list);
+    htmlElements.innerHTML = list
+      .map(
+        item =>
+          `<option value="${Object.values(item)[0]}">${
+            Object.values(item)[0]
+          }</option>`
+      )
+      .join('');
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
     htmlElements.innerHTML = '';
   }
 }
@@ -117,10 +121,10 @@ export async function getCardsByСategory(category) {
   try {
     const response = await fetchService.fetchByCategory(category);
     console.log('response', response);
-     getCardsByFavoritDrinks(
+    getCardsByFavoritDrinks(
       response,
-       `Searching results by category: ${category}`
-     );
+      `Searching results by category: ${category}`
+    );
   } catch (error) {
     console.log(error.message);
     createMarkUpCards([], { add: false, h1Change: '' });

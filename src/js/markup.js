@@ -55,7 +55,7 @@ export function createMarkUpCards(arrOfDrinks, param) {
           } ${el[`strIngredient${i}`]}</li>`;
         }
       }
-      console.log('heart', btnIcon.outerHTML);
+      // console.log('heart', btnIcon.outerHTML);
       return `<li class="card">
       <img class="card__img" src="${el.strDrinkThumb}"alt="${el.strDrink}" loading="lazy"/>
       <h3 class="card__title">${el.strDrink}</h3>
@@ -76,7 +76,6 @@ export function createMarkUpCards(arrOfDrinks, param) {
       htmlStrings.join('')
     );
 
-    
     if (document.querySelector('.btn.btn--more')) {
     } else {
       htmlElements.listOfDrinks.insertAdjacentHTML(
@@ -90,7 +89,9 @@ export function createMarkUpCards(arrOfDrinks, param) {
     // observerForLoad.observe(document.querySelector('.card:last-child'));
   } else {
     htmlElements.listOfDrinks.innerHTML = htmlStrings.join('');
-    if (document.querySelector('.btn.btn--more')) { document.querySelector('.btn.btn--more').remove() }
+    if (document.querySelector('.btn.btn--more')) {
+      document.querySelector('.btn.btn--more').remove();
+    }
   }
 
   document
