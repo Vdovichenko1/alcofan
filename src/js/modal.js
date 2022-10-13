@@ -30,13 +30,13 @@ export function onModalOpenIngrids() {
   refs.btnModalClose = document.querySelector('[data-modal-close-ingrid]');
   refs.overlay.style.zIndex = 5;
   refs.modalIngrid.classList.remove('hidden');
-  refs.modalIngrid.classList.add('active');
+  refs.modalIngrid.classList.add('activeF');
   refs.btnModalClose.addEventListener('click', onCloseButtonIgridClick);
 }
 
 function onCloseButtonIgridClick() {
   refs.overlay.style.zIndex = 3;
   refs.modalIngrid.classList.add('hidden');
-  refs.modalIngrid.classList.remove('active');
+  refs.modalIngrid.classList.remove('activeF');
   //refs.btnCloseModal.removeEventListener('click', onCloseButtonClick);
 }

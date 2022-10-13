@@ -44,7 +44,7 @@ export function initPage() {
   }
   console.log('favoriteIngredients = ', favoriteIngredients);
   console.log('кол-во карточек', getNumberElement());
-  
+
   getCards(getNumberElement());
 }
 export function getNumberElement() {
@@ -71,4 +71,3 @@ export const observerForAmination = new IntersectionObserver(
   },
   { rootMargin: '-100px' }
 );
-
