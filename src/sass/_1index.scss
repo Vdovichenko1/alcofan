@@ -362,6 +362,24 @@
   pointer-events: none;
 }
 
+.more__filters {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  grid-template-columns: repeat(5, 1fr);
+
+  & .wrapper {
+    // display: flex;
+    flex-direction: row;
+    width: 150px;
+  }
+
+  & label {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 // gallery
 .gallery {
   display: flex;

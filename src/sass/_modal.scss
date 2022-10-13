@@ -4,6 +4,7 @@
 
 .fixed {
   overflow: hidden;
+  height: 100vh;
 }
 .modal .btn.btn--lm {
   display: none;
@@ -211,7 +212,7 @@
     font-size: 16px;
     line-height: 1.5;
     color: grey;
-    overflow: hidden;
+    overflow: auto;
   }
 
   &.active {
