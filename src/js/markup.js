@@ -23,8 +23,13 @@ export function createMarkUpCards(arrOfDrinks, param) {
   let htmlStrings = [];
   const h1 = document.querySelector('h1.section__title');
   if (arrOfDrinks.length === 0) {
-    htmlElements.listOfDrinks.innerHTML = `<div class="card-error"> <span class="card-error__text">Sorry, we didn't find any cocktail for you</span> <div class="card-error__img"></div></div>`;
+    htmlElements.listOfDrinks.innerHTML = `<div class="card-error">
+    <span class="card-error__text">Sorry, we didn't find any cocktail for you</span>
+    <div class="card-error__img"></div></div>`;
     h1.innerHTML = '';
+    if (document.querySelector('.btn.btn--more')) {
+      document.querySelector('.btn.btn--more').remove();
+    }
     return;
   } else {
     htmlStrings = arrOfDrinks.map(el => {
@@ -71,7 +76,7 @@ export function createMarkUpCards(arrOfDrinks, param) {
       htmlStrings.join('')
     );
 
-    console.log('есть КНОПКА?', document.querySelector('.btn.btn--more'));
+    
     if (document.querySelector('.btn.btn--more')) {
     } else {
       htmlElements.listOfDrinks.insertAdjacentHTML(
