@@ -1,6 +1,11 @@
 .hidden {
   display: none;
 }
+
+.fixed {
+  overflow: hidden;
+}
+
 .modal {
   // max-height: 600px;
   // display: grid;

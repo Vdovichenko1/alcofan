@@ -15,6 +15,7 @@ export function onModalOpen() {
   refs.btnIngridient.forEach(li => {
     li.addEventListener('click', onModalOpenIngrids);
   });
+  document.body.classList.add('fixed');
 }
 
 function onCloseButtonClick() {
@@ -22,6 +23,7 @@ function onCloseButtonClick() {
   refs.overlay.classList.remove('active');
   refs.modal.classList.add('hidden');
   refs.modal.classList.remove('active');
+  document.body.classList.remove('fixed');
   //refs.btnCloseModal.removeEventListener('click', onCloseButtonClick);
 }
 
