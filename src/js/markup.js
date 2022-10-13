@@ -1,10 +1,14 @@
-import { favoritDrinks, favoriteIngredients } from './initpage';
+import {
+  favoritDrinks,
+  favoriteIngredients,
+  getNumberElement,
+} from './initpage';
 import { htmlElements } from './start';
 import { observerForAmination, observerForLoad } from './initpage';
 import { saveLocalStorage } from './localStorage';
 import { KEY_LOCAL_STORAGE_FAVORITE_DRINKS } from './initpage';
 import { KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS } from './initpage';
-import { getCardsByIngridient } from './fetch';
+import { getCardsByIngridient, getCards } from './fetch';
 import { onModalOpen } from './modal';
 
 export function createMarkUpCards(arrOfDrinks, param) {
@@ -58,9 +62,22 @@ export function createMarkUpCards(arrOfDrinks, param) {
       'beforeend',
       htmlStrings.join('')
     );
+
+    console.log('есть КНОПКА?', document.querySelector('.btn.btn--more'));
+    if (document.querySelector('.btn.btn--more')) {
+    } else {
+      htmlElements.listOfDrinks.insertAdjacentHTML(
+        'afterend',
+        '<button type="button" class="btn btn--more">Load more</button>'
+      );
+      document
+        .querySelector('.btn.btn--more')
+        .addEventListener('click', e => getCards(getNumberElement()));
+    }
     // observerForLoad.observe(document.querySelector('.card:last-child'));
   } else {
     htmlElements.listOfDrinks.innerHTML = htmlStrings.join('');
+    if (document.querySelector('.btn.btn--more')) { document.querySelector('.btn.btn--more').remove() }
   }
 
   document
@@ -102,8 +119,7 @@ function openIngridient(e) {
 }
 function showMoreAboutCoctail(e) {
   const modalWindow = document.querySelector('div.modal');
-  modalWindow
-    .innerHTML = `<button class="modal__close" type="button" data-modal-close>
+  modalWindow.innerHTML = `<button class="modal__close" type="button" data-modal-close>
                     <svg width="32" height="32">
                       <use href="./img/symbol-defs.svg#icon-close"></use>
                     </svg>
@@ -119,7 +135,8 @@ function showMoreAboutCoctail(e) {
   });
 
   if (btnAdd.textContent === 'Add to') btnAdd.textContent = 'Add to favorite';
-  if (btnAdd.textContent === 'Remove') btnAdd.textContent = 'Remove from favorite';
+  if (btnAdd.textContent === 'Remove')
+    btnAdd.textContent = 'Remove from favorite';
   modalWindow
     .querySelector('.card__ingridients')
     .insertAdjacentHTML(

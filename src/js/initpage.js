@@ -44,7 +44,7 @@ export function initPage() {
   }
   console.log('favoriteIngredients = ', favoriteIngredients);
   console.log('кол-во карточек', getNumberElement());
-  //fetchService.randomCoctailsOnStart(getNumberElement());
+  
   getCards(getNumberElement());
 }
 export function getNumberElement() {
@@ -71,10 +71,4 @@ export const observerForAmination = new IntersectionObserver(
   },
   { rootMargin: '-100px' }
 );
-document.querySelector('.btn.btn--more').addEventListener('click', e =>  getCards(getNumberElement()))
-// export const observerForLoad = new IntersectionObserver(entries => {
-//   if (!entries[0].isIntersecting) return;
-//   console.log('нужні новіе карточки', getNumberElement());
-//   getCards(entries.length);
-//   observerForLoad.unobserve(entries[0].target);
-// });
+
