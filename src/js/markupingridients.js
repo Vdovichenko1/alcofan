@@ -56,12 +56,10 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
     );
     document.querySelector('.modal.modal--ingrid').innerHTML =
       htmlStrings.join('');
+    console.log(htmlStrings.join(''));
 
     ////  теперь тут НАДО ОТКРІТЬ МОДАЛКУ ИНГРИДИЕНТОВ
     //// поднять какую либо функцию типа onCloseMODALWINDOW
-
-
-    
   } else if (param.display === 'list') {
     h1.innerHTML = param.h1Change;
     htmlElements.listOfDrinks.innerHTML = htmlStrings.join('');
@@ -76,7 +74,8 @@ export function createMarkUpIngridients(arrOfIngridients, param) {
   document.querySelectorAll('.btn-add.ingridient').forEach(item => {
     item.addEventListener('click', newChooseIngridient);
   });
-  document.querySelectorAll('.btn.btn--lm').forEach(item => {
+
+  document.querySelectorAll('.card-ingridient  li').forEach(item => {
     item.addEventListener('click', showMoreAboutIngridient);
   });
 }
@@ -100,7 +99,7 @@ function newChooseIngridient(e) {
 }
 function showMoreAboutIngridient(e) {
   const modalWindow = document.querySelector('.modal.modal--ingrid');
- modalWindow.innerHTML = e.currentTarget.closest('.card-ingridient').innerHTML;
+  modalWindow.innerHTML = e.currentTarget.closest('.card-ingridient').innerHTML;
   modalWindow
     .querySelector('.btn-add.ingridient')
     .addEventListener('click', newChooseIngridient);
