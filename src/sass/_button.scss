@@ -72,11 +72,11 @@
   }
 }
 
-.btn-add {
-  background-image: url(../img/heart.png);
-  background-repeat: no-repeat;
-  background-position: 80%;
-}
+// .btn-add {
+//   background-image: url(../img/heart.png);
+//   background-repeat: no-repeat;
+//   background-position: 80%;
+// }
 
 .btn-add {
   display: flex;
@@ -124,10 +124,23 @@
   }
 }
 
+// .btn__icon {
+//   margin-left: 10px;
+//   fill: currentColor;
+//   @media screen and (max-width: 767px) {
+//     margin-left: 2px;
+//   }
+// }
+
 .btn__icon {
   margin-left: 10px;
-  fill: currentColor;
-  @media screen and (max-width: 767px) {
-    margin-left: 2px;
-  }
+  fill: transparent;
+  vertical-align: middle;
+  transition: fill 250ms linear;
 }
+
+.btn-add:hover .btn__icon {
+  fill: $btn-active;
+}
+
+

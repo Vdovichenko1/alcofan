@@ -7,6 +7,10 @@ import { KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS } from './initpage';
 import { getCardsByIngridient } from './fetch';
 import { onModalOpen } from './modal';
 
+const btnIcon = document.querySelector('.btn__icon');
+btnIcon.remove();
+btnIcon.style.display = '';
+
 export function createMarkUpCards(arrOfDrinks, param) {
   let htmlStrings = [];
   const h1 = document.querySelector('h1.section__title');
@@ -46,7 +50,7 @@ export function createMarkUpCards(arrOfDrinks, param) {
       <p class=card__instruction>${el.strInstructions}</p>
       <div class="card__buttons">
       <button class="btn btn--lm" type="button">Learn more</button>
-      <button class="${myClass}" type="button" data-id="${el.idDrink}">${myTextContent}<svg class="btn__icon" width="20" height="20"><use href="#"></use></svg></button>
+      <button class="${myClass}" type="button" data-id="${el.idDrink}">${myTextContent} ${btnIcon.outerHTML}</button>
       </div></li>`;
     });
   }
@@ -102,8 +106,7 @@ function openIngridient(e) {
 }
 function showMoreAboutCoctail(e) {
   const modalWindow = document.querySelector('div.modal');
-  modalWindow
-    .innerHTML = `<button class="modal__close" type="button" data-modal-close>
+  modalWindow.innerHTML = `<button class="modal__close" type="button" data-modal-close>
                     <svg width="32" height="32">
                       <use href="./img/symbol-defs.svg#icon-close"></use>
                     </svg>
