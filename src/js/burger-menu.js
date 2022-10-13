@@ -1,8 +1,9 @@
-import {handlerFavoritIngridients, handlerFavoritCoctails} from './start'
+import { handlerFavoritIngridients, handlerFavoritCoctails } from './start';
 export const refs = {
   btnRef: document.querySelector('[data-menu-button]'),
   menu: document.querySelector('[data-menu]'),
   logo: document.querySelector('.logo'),
+  switch: document.querySelector('.theme-switch'),
   favoritCock: document.querySelector(
     '.dropdown__link.dropdown__link-coctails'
   ),
@@ -28,4 +29,5 @@ function onOpenBurger() {
   refs.btnRef.setAttribute('aria-expanded', !expanded);
   refs.logo.classList.remove('logo-burger');
   refs.menu.classList.toggle('is-open');
+  refs.switch.classList.toggle('switch-burger');
 }
