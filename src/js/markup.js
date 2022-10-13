@@ -5,6 +5,7 @@ import { saveLocalStorage } from './localStorage';
 import { KEY_LOCAL_STORAGE_FAVORITE_DRINKS } from './initpage';
 import { KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS } from './initpage';
 import { getCardsByIngridient } from './fetch';
+import { onModalOpen } from './modal';
 
 export function createMarkUpCards(arrOfDrinks, param) {
   let htmlStrings = [];
@@ -38,7 +39,15 @@ export function createMarkUpCards(arrOfDrinks, param) {
         }
       }
 
-      return `<li class="card"><img class="card__img" src="${el.strDrinkThumb}"alt="${el.strDrink}" loading="lazy"/><div class="card__meta"><h3 class="card__title">${el.strDrink}</h3><ul class=card__ingridients>${sringIng}</ul><p class=card__instruction>${el.strInstructions}</p><div class="card__buttons"><button class="btn btn--lm" type="button">Learn more</button><button class="${myClass}" type="button" data-id="${el.idDrink}">${myTextContent}<svg class="btn__icon" width="20" height="20"><use href="#"></use></svg></button></div></div></li>`;
+      return `<li class="card">
+      <img class="card__img" src="${el.strDrinkThumb}"alt="${el.strDrink}" loading="lazy"/>
+      <h3 class="card__title">${el.strDrink}</h3>
+      <ul class=card__ingridients>${sringIng}</ul>
+      <p class=card__instruction>${el.strInstructions}</p>
+      <div class="card__buttons">
+      <button class="btn btn--lm" type="button">Learn more</button>
+      <button class="${myClass}" type="button" data-id="${el.idDrink}">${myTextContent}<svg class="btn__icon" width="20" height="20"><use href="#"></use></svg></button>
+      </div></li>`;
     });
   }
 
@@ -49,7 +58,7 @@ export function createMarkUpCards(arrOfDrinks, param) {
       'beforeend',
       htmlStrings.join('')
     );
-    observerForLoad.observe(document.querySelector('.card:last-child'));
+    // observerForLoad.observe(document.querySelector('.card:last-child'));
   } else {
     htmlElements.listOfDrinks.innerHTML = htmlStrings.join('');
   }
@@ -92,10 +101,38 @@ function openIngridient(e) {
   getCardsByIngridient(e.currentTarget.dataset.ingridient);
 }
 function showMoreAboutCoctail(e) {
-  const modalWindow = document.querySelector('.modal-coctail');
-  modalWindow.innerHTML = e.currentTarget.closest('.card').innerHTML;
-  console.log('++++++++++', modalWindow.querySelector('.btn-add'));
+  const modalWindow = document.querySelector('div.modal');
   modalWindow
-    .querySelector('.btn-add')
-    .addEventListener('click', newChooseDrink);
+    .innerHTML = `<button class="modal__close" type="button" data-modal-close>
+                    <svg width="32" height="32">
+                      <use href="./img/symbol-defs.svg#icon-close"></use>
+                    </svg>
+                  </button>`;
+  modalWindow.insertAdjacentHTML(
+    'beforeend',
+    e.currentTarget.closest('.card').innerHTML
+  );
+  const btnAdd = modalWindow.querySelector('.btn-add');
+  btnAdd.addEventListener('click', newChooseDrink);
+  modalWindow.querySelectorAll('.card__ingridients li').forEach(item => {
+    item.addEventListener('click', openIngridient);
+  });
+
+  if (btnAdd.textContent === 'Add to') btnAdd.textContent = 'Add to favorite';
+  if (btnAdd.textContent === 'Remove') console.log(btnAdd);
+  btnAdd.textContent = 'Remove from favorite';
+  modalWindow
+    .querySelector('.card__ingridients')
+    .insertAdjacentHTML(
+      'beforebegin',
+      '<p class="ingridients__title">INGREDIENTS</p><p class="ingridients__mesure">Per cocktail</p>'
+    );
+
+  modalWindow
+    .querySelector('.card__instruction')
+    .insertAdjacentHTML(
+      'beforebegin',
+      '<p class="modal__title-Instructions">Instructions:</p>'
+    );
+  onModalOpen();
 }
