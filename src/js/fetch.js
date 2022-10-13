@@ -70,7 +70,7 @@ export async function getCardsByFavoritDrinks(arrayDrinks) {
 export async function getCardsByIngridient(key) {
   console.log('создаю карточки = ', key);
   try {
-    const response = fetchService.byIdCoctail(key);
+    const response = await fetchService.byIngrName(key);
     createMarkUpIngridients(response, {
      display: 'modal',
     h1Change: '',
