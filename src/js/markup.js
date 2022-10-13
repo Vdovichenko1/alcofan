@@ -7,6 +7,10 @@ import { KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS } from './initpage';
 import { getCardsByIngridient } from './fetch';
 import { onModalOpen } from './modal';
 
+const modalBtnClose = document.querySelector('.modal__close-icon');
+modalBtnClose.remove();
+modalBtnClose.style.display = '';
+
 const btnIcon = document.querySelector('.btn__icon');
 btnIcon.remove();
 btnIcon.style.display = '';
@@ -107,9 +111,7 @@ function openIngridient(e) {
 function showMoreAboutCoctail(e) {
   const modalWindow = document.querySelector('div.modal');
   modalWindow.innerHTML = `<button class="modal__close" type="button" data-modal-close>
-                    <svg width="32" height="32">
-                      <use href="./img/symbol-defs.svg#icon-close"></use>
-                    </svg>
+                    ${modalBtnClose.outerHTML}
                   </button>`;
   modalWindow.insertAdjacentHTML(
     'beforeend',
@@ -122,7 +124,8 @@ function showMoreAboutCoctail(e) {
   });
 
   if (btnAdd.textContent === 'Add to') btnAdd.textContent = 'Add to favorite';
-  if (btnAdd.textContent === 'Remove') btnAdd.textContent = 'Remove from favorite';
+  if (btnAdd.textContent === 'Remove')
+    btnAdd.textContent = 'Remove from favorite';
   modalWindow
     .querySelector('.card__ingridients')
     .insertAdjacentHTML(
