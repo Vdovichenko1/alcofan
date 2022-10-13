@@ -29,7 +29,7 @@ export default class FetchService {
     }
     const data = await Promise.all(coctailsPr);
     const coctails = data.map(coctail => coctail.data.drinks[0]);
-    console.log(coctails);
+    // console.log(coctails);
     return coctails; 
   }
 

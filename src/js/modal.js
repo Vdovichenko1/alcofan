@@ -5,7 +5,11 @@ const refs = {
   learnMoreBtn: document.querySelectorAll('.btn--lm'),
 };
 
-export function onModalOpen() {
+let scroll = 0;
+
+export function onModalOpen(e) {
+  scroll = scrollY;
+  window.addEventListener('keydown', escPress);
   refs.btnModalClose = document.querySelector('.modal .modal__close');
   refs.btnIngridient = document.querySelectorAll('.card__ingridients li');
   refs.overlay.classList.add('active');
@@ -16,17 +20,22 @@ export function onModalOpen() {
     li.addEventListener('click', onModalOpenIngrids);
   });
   document.body.classList.add('fixed');
+  document.body.dataset.scrollY = scroll;
+  document.body.style.top = `-${document.body.dataset.scrollY}px`;
 }
 
-function onCloseButtonClick() {
+function onCloseButtonClick(e) {
   refs.overlay.classList.remove('active');
   refs.modal.classList.add('hidden');
   refs.modal.classList.remove('active');
   document.body.classList.remove('fixed');
-  //refs.btnCloseModal.removeEventListener('click', onCloseButtonClick);
+  window.scrollTo(0, scroll);
+  refs.btnModalClose.removeEventListener('click', onCloseButtonClick);
+  window.removeEventListener('keydown', escPress);
 }
 
-export function onModalOpenIngrids() {
+export function onModalOpenIngrids(e) {
+  window.addEventListener('keydown', escPress);
   refs.btnModalClose = document.querySelector('[data-modal-close-ingrid]');
   refs.overlay.style.zIndex = 5;
   refs.modalIngrid.classList.remove('hidden');
@@ -34,9 +43,30 @@ export function onModalOpenIngrids() {
   refs.btnModalClose.addEventListener('click', onCloseButtonIgridClick);
 }
 
-function onCloseButtonIgridClick() {
+function onCloseButtonIgridClick(e) {
   refs.overlay.style.zIndex = 3;
   refs.modalIngrid.classList.add('hidden');
   refs.modalIngrid.classList.remove('activeF');
-  //refs.btnCloseModal.removeEventListener('click', onCloseButtonClick);
+  refs.btnModalClose.removeEventListener('click', onCloseButtonIgridClick);
+  window.removeEventListener('keydown', escPress);
+}
+
+// function escPress(event) {
+//   console.log(event.code);
+//   if (event.code === 'Escape') {
+//     onCloseButtonClick();
+//   }
+// }
+
+function escPress(event) {
+  console.log(event.code);
+  if (event.code === 'Escape') {
+    if (refs.modalIngrid.classList.contains('activeF')) {
+      onCloseButtonIgridClick();
+      window.addEventListener('keydown', escPress);
+      return;
+    }
+
+    onCloseButtonClick();
+  }
 }

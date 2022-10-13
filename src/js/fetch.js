@@ -6,7 +6,7 @@ const fetchService = new FetchService();
 
 //рандомное количество карточек
 export async function getCards(number) {
-  console.log('ЁЁЁЁЁ  создаю карточки', number);
+  // console.log('ЁЁЁЁЁ  создаю карточки', number);
   try {
     const coctails = await fetchService.randomCoctailsOnStart(number);
     createMarkUpCards(coctails, {
@@ -98,7 +98,7 @@ export async function getCardsByFavoritIngridient(arrayIngridients) {
 // -------------------------------------------------------------------------------------------------------------
 
 export async function getList(urlEnd, htmlElements) {
-  console.log('создаю спиок по  = ', urlEnd);
+  // console.log('создаю спиок по  = ', urlEnd);
   try {
     const list = await fetchService.fetchList(urlEnd);
     htmlElements.innerHTML = list
@@ -110,7 +110,7 @@ export async function getList(urlEnd, htmlElements) {
       )
       .join('');
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
     htmlElements.innerHTML = '';
   }
 }

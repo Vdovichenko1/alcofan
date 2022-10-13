@@ -35,15 +35,15 @@ export function initPage() {
   if (loadLocalStorage(KEY_LOCAL_STORAGE_FAVORITE_DRINKS)) {
     favoritDrinks = loadLocalStorage(KEY_LOCAL_STORAGE_FAVORITE_DRINKS);
   }
-  console.log('опросил локалсторедж = favoritDrinks', favoritDrinks);
+  // console.log('опросил локалсторедж = favoritDrinks', favoritDrinks);
   // любиміе ингридиенты из хранилища
   if (loadLocalStorage(KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS)) {
     favoriteIngredients = loadLocalStorage(
       KEY_LOCAL_STORAGE_FAVORITE_INGREDIENTS
     );
   }
-  console.log('favoriteIngredients = ', favoriteIngredients);
-  console.log('кол-во карточек', getNumberElement());
+  // console.log('favoriteIngredients = ', favoriteIngredients);
+  // console.log('кол-во карточек', getNumberElement());
 
   getCards(getNumberElement());
 }

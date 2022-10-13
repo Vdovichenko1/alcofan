@@ -28,14 +28,10 @@ export const htmlElements = {
   selectByAlcoholic: document.querySelector('[name="select_by_alcoholic"]'),
 };
 
-console.log('htmlElements ====' , htmlElements);
-
 initPage();
 closeOpenFilter();
 
-
 function closeOpenFilter() {
-  console.log(htmlElements.addFilters.dataset.state);
   if (htmlElements.addFilters.dataset.state === 'close') {
     htmlElements.addFilters.innerHTML = `Hide more filters
         <img
@@ -57,7 +53,6 @@ function closeOpenFilter() {
           style="width: 30px"
         />`;
     htmlElements.addFilters.dataset.state = 'close';
-     console.log(htmlElements.addFilters.dataset.state);
     document.querySelector('.wrapper__filter').style.display = 'none';
   }
 }
@@ -103,7 +98,6 @@ htmlElements.favoritIngridients.addEventListener(
   'click',
   handlerFavoritIngridients
 );
-
 
 export function handlerFavoritIngridients() {
   document.querySelector('.section.hero').style.display = 'none';
