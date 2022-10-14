@@ -367,6 +367,10 @@
 }
 
 .more__filters {
+  padding: 5px;
+    border: 2px solid $font-secondary-color;
+    cursor: pointer;
+    color: $font-main-color;
   // grid-column-start: 1;
   // grid-column-end: 3;
   display: flex;
@@ -376,12 +380,17 @@
     // display: flex;
     flex-direction: row;
     width: 150px;
+    font-size: inherit;
+    
   }
 
   & label {
     display: flex;
     flex-direction: column;
   }
+}
+.more__filters:hover {
+  color: #fd5103;
 }
 
 // gallery

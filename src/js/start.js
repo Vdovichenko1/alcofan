@@ -33,25 +33,11 @@ closeOpenFilter();
 
 function closeOpenFilter() {
   if (htmlElements.addFilters.dataset.state === 'close') {
-    htmlElements.addFilters.innerHTML = `Hide more filters
-        <img
-          class="more__filters__icon"
-          select
-          src="./img/f-.png"
-          alt="icon"
-          style="width: 30px"
-        />`;
+    htmlElements.addFilters.innerHTML = `Hide more filters`;
     document.querySelector('.wrapper__filter').style.display = 'block';
     htmlElements.addFilters.dataset.state = 'open';
   } else if (htmlElements.addFilters.dataset.state === 'open') {
-    htmlElements.addFilters.innerHTML = `Use more filters
-        <img
-          class="more__filters__icon"
-          select
-          src="./img/f+.png"
-          alt="icon"
-          style="width: 30px"
-        />`;
+    htmlElements.addFilters.innerHTML = `Use more filters`;
     htmlElements.addFilters.dataset.state = 'close';
     document.querySelector('.wrapper__filter').style.display = 'none';
   }
