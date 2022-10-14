@@ -23,7 +23,7 @@
   opacity: 0;
   grid-template-columns: 288px 1fr 32px;
   grid-template-rows: repeat(7, auto);
-  position: absolute;
+  position: fixed;
   padding: 28px;
   transition: transform 1250ms linear;
 
